@@ -1,8 +1,9 @@
-### Development Setup.
+# Developing day and night ... :dog:
 
-### Setup with ️
 
-```
+### Setup with 
+
+```bash
 $ npm install  # Install all dependencies
 $ npm start # Setup everything for developing
 ```
