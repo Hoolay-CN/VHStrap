@@ -2,6 +2,7 @@
   <div class="well">
     <button class="btn btn-{{ channel }}" :disabled="isDisabled">
       {{ text }}
+      <slot></slot>
     </button>
 
     <button @click="requestData">
@@ -65,3 +66,8 @@
     }
   }
 </script>
+<style lang="css">
+  body {
+    font-size: 30px;
+  }
+</style>

@@ -1,1 +1,1 @@
-import 'styles/hoolay/entry.css';
+// index.js
