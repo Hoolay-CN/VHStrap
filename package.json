@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Hoolay-CN/VHStrap#readme",
   "dependencies": {
     "got": "^6.5.0",
+    "styles": "^0.2.1",
     "vue": "^1.0.26"
   },
   "devDependencies": {
@@ -42,6 +43,7 @@
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.3.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
     "html-webpack-plugin": "^2.22.0",
@@ -52,6 +54,7 @@
     "vue-html-loader": "^1.2.3",
     "vue-loader": "^8.5.2",
     "vue-style-loader": "^1.0.0",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
   }
 }

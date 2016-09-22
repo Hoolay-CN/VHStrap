@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
@@ -26,30 +27,30 @@ module.exports = {
     //     exclude: /node_modules/
     //   },
     // ],
-    // loaders: [
-    //   {test: /\.js$/, exclude: /node_modules/, loader: 'babel'},
-    //   {test: /\.scss$/, loaders: ["style", "css", "sass"]},
-    //   {test: /\.vue$/, loader: 'vue'},
-    //   {test: /\.css$/, loader: "style-loader!css-loader"},
-    // ]
     loaders: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel', // 'babel-loader' is also a valid name to reference
-        query: {
-          presets: ['es2015']
-        }
-      },
-      {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader',
       },
       {
         test: /\.vue$/,
         loader: 'vue'
       },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+            fallbackLoader: "style-loader",
+            loader: "css-loader"
+        })
+      }
     ]
+  },
+  devServer: {
+    contentBase: "./dist",
+    colors: true,
+    historyApiFallback: true,
+    inline: true
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -57,5 +58,6 @@ module.exports = {
       filename: 'index.html',
       template: 'src/demo.html',
     }),
+    new ExtractTextPlugin("[name]-[hash].css"),
   ],
 }
