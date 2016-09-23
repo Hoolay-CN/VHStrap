@@ -1,24 +1,37 @@
 <template>
-  <h1>
-    hel
-  </h1>
-  <h-button channel='outline-hoolay'>点击提交</h-button>
-  <h-button channel='hoolay'>点击提交</h-button>
+  <div class="app-wrap">
+    <button class="btn btn-outline-hoolay" @click="showMyModal">
+      Show My Modal
+    </button>
+    <Modal title="my title" content="<h1>this is my content</h1>" :visible.sync="modalVisible" :on-close="onModalClose"></Modal>
+  </div>
 </template>
 
 <script type="text/babel">
-  import hButton from './h-button.vue';
-  import alert from './alert.vue';
+  import Modal from './modal.vue';
 
   export default {
+    data() {
+      return {
+        modalVisible: false
+      }
+    },
+    methods: {
+      showMyModal() {
+        this.modalVisible = true;
+      },
+      onModalClose() {
+        alert('closed modal not cancel');
+      }
+    },
     components: {
-      hButton
+      Modal,
     }
   }
 </script>
 
 <style>
-  h1 {
-    color: red;
+  .app-wrap {
+    padding: 50px;
   }
 </style>
