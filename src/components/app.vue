@@ -1,12 +1,14 @@
 <template>
   <h1>
-    hello
+    hel
   </h1>
-  <h-button channel="primary" text="Click"></h-button>
+  <h-button channel='outline-hoolay'>点击提交</h-button>
+  <h-button channel='hoolay'>点击提交</h-button>
 </template>
 
 <script type="text/babel">
   import hButton from './h-button.vue';
+  import alert from './alert.vue';
 
   export default {
     components: {

@@ -1,3 +1,6 @@
 .btn-hoolay {
   @include button-variant($btn-hoolay-color, $btn-hoolay-bg, $btn-hoolay-border);
 }
+.btn-outline-hoolay {
+  @include button-outline-variant($btn-hoolay-bg);
+}

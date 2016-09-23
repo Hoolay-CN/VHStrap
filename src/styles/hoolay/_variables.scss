@@ -1,3 +1,34 @@
-$btn-hoolay-color: #ffffff;
-$btn-hoolay-bg: #0096ff;
-$btn-hoolay-border: #008AEA;
+$hoolay-bg: #0096FF;
+$primary-bg: #0F74D5;
+$success-bg: #5DB860;
+$info-bg: #5D8FDC;
+$warning-bg: #EFAE57;
+$error-bg: #D85653;
+
+// 按钮上的圆角
+$border-radius:2px;  //
+
+// btn color
+$btn-hoolay-color:            #fff;
+$btn-hoolay-bg:               $hoolay-bg;
+$btn-hoolay-border:           $hoolay-bg;
+
+$btn-primary-color:           #fff;
+$btn-primary-bg:              $primary-bg;
+$btn-primary-border:          $primary-bg;
+
+$btn-success-color:           #fff;
+$btn-success-bg:              $success-bg;
+$btn-success-border:          $success-bg;
+
+$btn-info-color:              #fff;
+$btn-info-bg:                 $info-bg;
+$btn-info-border:             $info-bg;
+
+$btn-warning-color:           #fff;
+$btn-warning-bg:              $warning-bg;
+$btn-warning-border:          $warning-bg;
+
+$btn-error-color:             #fff;
+$btn-error-bg:                $error-bg;
+$btn-error-border:            $error-bg;

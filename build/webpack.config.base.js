@@ -11,12 +11,10 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
-    root: [
-      rootPath + '/src/',
-    ],
+    //root: [],
     extensions: ['', '.js', '.vue'],
-    alias: {},
-    fallback: []
+    //alias: {},
+    //fallback: [],
   },
   // plugins: {},
   resolveLoader: {},

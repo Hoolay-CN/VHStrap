@@ -1,0 +1,3 @@
+.alert-hoolay {
+  @include alert-variant($alert-hoolay-bg, $alert-hoolay-border, $alert-hoolay-text);
+}

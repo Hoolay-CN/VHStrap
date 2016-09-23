@@ -1,28 +1,41 @@
-<template lang="html">
-<div
-  v-bind:class="{
-    'alert':		true,
-    'alert-success':(type == 'success'),
-    'alert-warning':(type == 'warning'),
-    'alert-info':	(type == 'info'),
-    'alert-danger':	(type == 'danger')
-  }">
-  <button type="button" name="button">
-
-    <slot></slot>
+<!-- <template lang="html">
+<button type="button" name="button" @click="showCtr" class="btn btn-default">
+  点击显示
+</button>
+<div v-show="showAlert"
+  :style="{ width : width }"
+  class="alert alert-{{ type }}">
+  <button type="button" class="close" data-dismiss="alert"
+    @click="showAlert = false">
+    <span aria-hidden="true">&times;</span>
   </button>
+  <slot></slot>
 </div>
+
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      showAlert: false
+    }
+  },
   props: {
     type: {
       type: String
     },
+    width: {
+      type: String
+    }
+  },
+  methods: {
+    showCtr: function () {
+      this.showAlert = !this.showAlert;
+    }
   }
 };
 </script>
 
 <style lang="css">
-</style>
+</style> -->
