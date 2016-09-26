@@ -5,7 +5,6 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" role="menu" v-show="show">
-      <!-- <li role="presentation" class="dropdown-item" v-for="i in subMenu"><a role="menuitem" href="#">{{ subMenu[i] }}</a></li> -->
       <slot></slot>
     </ul>
   </div>
@@ -36,7 +35,12 @@ export default {
     showDrop() {
       this.show = !this.show;
     },
-  }
+  },
+	ready() {
+		document.addEventListener('click', (e) => {
+			(!this.$el.contains(e.target)) && (this.show = false);
+		});
+	}
 }
 </script>
 <style>
