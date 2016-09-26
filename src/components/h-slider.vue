@@ -1,0 +1,28 @@
+<template lang="html">
+  <div class="carousel-item">
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      index: 0,
+      show: false,
+    }
+  },
+  ready() {
+    for (var c in this.$parent.$children) {
+      if (this.$parent.$children[c] === this) {
+          this.index = parseInt(c,10);
+          break;
+      }
+    }
+    this.$parent.indicator.push(this.index)
+    if (this.index === 0) {
+      this.$el.className = this.$el.className + ' active';
+    }
+  }
+}
+</script>
