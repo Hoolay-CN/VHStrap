@@ -1,0 +1,8 @@
+<div>
+  <md-editor :settings="settings" :body.once="body" v-ref:editor></md-editor>
+  <div style="padding: 20px 0;">
+    <button type="button" @click="showRawBody()">Get markdown value</button>
+    <button type="button" @click="showHtmlBody()">Get html value</button>
+    <button type="button" @click="$refs.editor.callAction('togglePreview')">Call editor command . (eg: `togglePreview`)</button>
+  </div>
+</div>
