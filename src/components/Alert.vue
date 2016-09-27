@@ -1,4 +1,4 @@
-<!-- <template lang="html">
+<template lang="html">
 <button type="button" name="button" @click="showCtr" class="btn btn-default">
   点击显示
 </button>
@@ -38,4 +38,4 @@ export default {
 </script>
 
 <style lang="css">
-</style> -->
+</style>

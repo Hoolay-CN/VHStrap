@@ -1,11 +1,13 @@
 <template>
   <div class="app-wrap">
-    <!-- button -->
+     <!--button -->
     <button class="btn btn-outline-hoolay" @click="showMyModal">
       Show My Modal
     </button>
+
     <!-- modal -->
     <Modal title="my title" content="<h1>this is my content</h1>" :visible.sync="modalVisible" :on-close="onModalClose"></Modal>
+
     <!-- carousel -->
     <div class="carousel-wrap">
       <h-carousel >
@@ -23,23 +25,41 @@
         </h-slider>
       </h-carousel>
     </div>
+
     <!-- dropdowm   -->
     <div class="dropdown-wrap">
       <h-dropdown title="h-dropdown">
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Action</a></li>
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Another action</a></li>
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Something else here</a></li>
-        <li role="presentation" class="dropdown-item"><a role="menuitem" href="#">Separated link</a></li>
+				<h-sub-drop>
+					<a href="#">Action</a>
+				</h-sub-drop>
+				<h-sub-drop>
+					<a href="#">Another action</a>
+				</h-sub-drop>
+				<h-sub-drop>
+					<a href="#">Something else here</a>
+				</h-sub-drop>
+				<h-sub-drop>
+					<a href="#">Separated link</a>
+				</h-sub-drop>
       </h-dropdown>
     </div>
   </div>
+
+	<!--input-->
+	<div class="input-wrap">
+		<h-input placeholder="在此输入姓名" show-itle="true" input-title="$$$"></h-input>
+	</div>
+
 </template>
+
 
 <script type="text/babel">
   import Modal from './modal.vue';
-  import hCarousel from './h-carousel.vue';
-  import hSlider from './h-slider.vue';
-  import hDropdown from './h-dropdown.vue';
+  import hCarousel from './Carousel.vue';
+  import hSlider from './Slider.vue';
+  import hDropdown from './Dropdown.vue';
+	import hSubDrop from './subDrop.vue';
+	import hInput from './Input.vue';
 
   export default {
     data() {
@@ -59,7 +79,11 @@
       Modal,
       hCarousel,
       hSlider,
-      hDropdown
+
+			hSubDrop,
+      hDropdown,
+
+			hInput
     }
   }
 </script>
@@ -75,6 +99,10 @@
   }
   .dropdown-wrap {
     margin-top: 50px;
-    height: 400px;
+    height: 100px;
   }
+	.input-wrap {
+		width: 300px;
+		margin-bottom: 30px;
+	}
 </style>

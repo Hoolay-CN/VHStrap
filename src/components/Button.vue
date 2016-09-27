@@ -4,10 +4,6 @@
       {{ text }}
       <slot></slot>
     </button>
-    
-    <!-- <button class="btn" type="button">
-      {{ loading ? '正在请求...' : '提交' }}
-    </button> -->
   </div>
 </template>
 
