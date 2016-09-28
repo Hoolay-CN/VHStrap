@@ -49,12 +49,8 @@ module.exports = {
       loaders: ['html-loader?minimize=false']
     },
     font: {
-      test: /\.otf|ttf|woff2?|eot(\?\S*)?$/,
-      loader: 'url-loader',
-      query: {
-        limit: 10000,
-        name: path.posix.join('fonts', '[name].[hash:7].[ext]')
-      }
+			test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+      loader: 'file-loader',
     },
     image: {
       test: /\.(gif|png|jpe?g)(\?\S*)?$/,
