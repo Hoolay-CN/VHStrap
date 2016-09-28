@@ -15,7 +15,11 @@ let app = new Vue({
 	template: sourceHTML,
 	data: () => {
 		return {
-			settings: {},
+			settings: {
+				inlineUploaderSettings: {
+					uploadUrl: 'http://ued.hoolay.cn/cgi-bin/uploader.php'
+				}
+			},
 			body: welcomeBody
 		}
 	},

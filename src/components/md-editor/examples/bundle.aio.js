@@ -14809,7 +14809,11 @@ var app = new _vue2.default({
 	template: _main2.default,
 	data: function data() {
 		return {
-			settings: {},
+			settings: {
+				inlineUploaderSettings: {
+					uploadUrl: 'http://ued.hoolay.cn/cgi-bin/uploader.php'
+				}
+			},
 			body: _main4.default
 		};
 	},
