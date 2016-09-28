@@ -1,7 +1,7 @@
 // global styles
 import './styles/hoolay/entry.css';
 import Vue from 'vue';
-import App from './components/app.vue';
+import App from './_local/app.vue';
 
 // configs
 Vue.config.devtools = true;
