@@ -6,7 +6,7 @@
 
 <script type="text/babel">
   import SimpleMDE from 'simpleMDE';
-  import { merge, trim } from 'lodash';
+  import { merge } from 'lodash';
 
   var oid = 0;
   var defaults = {
