@@ -1,24 +1,18 @@
 <template>
   <div class="md-editor-container">
-    <textarea name="body" id="md-editor-{{ uuid }}"></textarea>
+    <textarea name="body"></textarea>
   </div>
 </template>
 
 <script type="text/babel">
   import SimpleMDE from 'simpleMDE';
-  import merge from 'lodash/merge';
-  import trim from 'lodash/trim';
+  import { merge, trim } from 'lodash';
 
   var oid = 0;
   var defaults = {
     inlineUploaderSettings: { // inline attachment settings
       uploadUrl: '',
-      extraHeaders: {
-        "Authorization": '',
-      },
-      urlText: function(filename, result) {
-        return '![' + result.originalName + '](' + filename + ')';
-      }
+      extraHeaders: {},
     },
     renderingConfig: {
       codeSyntaxHighlighting: true
@@ -28,24 +22,19 @@
     toolbarTips: false,
     autosave: {
       enabled: false,
-      uniqueId: 'hoolay-ats-{{ entityId }}'
     }
   };
 
   export default {
+    name: 'vmd-editor',
     mINSTANCE: null,
+    guid: false,
     data() {
       return {
         version: '0.0.1-snapshot',
       }
     },
-    computed: {
-      uuid: {
-        get: function () {
-          return oid;
-        }
-      }
-    },
+    computed: {},
     props: {
       settings: {
         'type': Object,
@@ -63,7 +52,11 @@
       }
     },
     created: function() {
-      ++oid;
+      this.$options.guid = ++oid;
+
+      if (typeof SimpleMDE !== 'function') {
+        throw('`SimpleMDE` not found . Please import the file which located at `./libs/simplemde.min.js` globally . And let `simpleMDE : SimpleMDE` be external with webpack configures !');
+      }
     },
     methods: {
       getRawBody: function() {
@@ -89,12 +82,11 @@
       }
     },
     ready: function() {
-      console.info(`[<MdEditor> Ready]@${oid}`);
-
+      const textarea = this.$el.querySelector('textarea');
       // Setup editor
       this.$nextTick(() => {
-        let md = this.$options.mINSTANCE = new SimpleMDE(merge({
-          element: document.getElementById(`md-editor-${oid}`)
+        const md = this.$options.mINSTANCE = new SimpleMDE(merge({
+          element: textarea
         }, defaults, this.settings));
 
         // Set default value
@@ -110,8 +102,6 @@
     destroyed: function() {
       this.$options.mINSTANCE.toTextArea();
       this.$options.mINSTANCE = null;
-
-      console.info(`[<MdEditor> Destroyed]@${oid}`);
     },
     watch: {}
   }
