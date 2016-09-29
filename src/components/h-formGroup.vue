@@ -2,7 +2,7 @@
 
 <template>
 	<form>
-		<fieldset class="form-group has-success" v-if="inputType === 'email' || inputType === 'password'">
+		<fieldset class="form-group" v-if="inputType === 'email' || inputType === 'password'">
 			<label for="needToChange">{{ labelTag }}</label>
 			<h-input :input-type="inputType" :placeholder="placeholder" id="needToChange" :input-status="inputStatus"></h-input>
 			<small class="text-muted"><slot></slot></small>
