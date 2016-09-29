@@ -6,6 +6,8 @@ npm-debug.log*
 dist/
 dev-dist/
 
+ .DS_Store
+
 # Idea
 .idea/
 
