@@ -1420,7 +1420,7 @@ pre {
   .form-control:focus {
     color: #55595c;
     background-color: #fff;
-    border-color: #66afe9;
+    border-color: #0096FF;
     outline: none; }
   .form-control::placeholder {
     color: #999;
@@ -3813,6 +3813,55 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
+h4.modal-title,
+.modal-header .close {
+  font-size: 1.25rem; }
+
+.modal-footer {
+  padding: 10px; }
+
+.form-control:focus {
+  box-shadow: 0 0 2px #0096FF; }
+
+.hoolay-upload-wrap {
+  position: relative; }
+  .hoolay-upload-wrap:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both; }
+  .hoolay-upload-wrap .hoolay-upload-file {
+    float: left;
+    position: relative;
+    padding: 0.5rem 0;
+    width: 7rem;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #888;
+    background: #fff;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.25;
+    cursor: pointer;
+    overflow: hidden; }
+    .hoolay-upload-wrap .hoolay-upload-file:hover {
+      color: #444;
+      background: #eee;
+      border-color: #ccc; }
+    .hoolay-upload-wrap .hoolay-upload-file input {
+      position: absolute;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      cursor: pointer; }
+  .hoolay-upload-wrap .hoolay-upload-status {
+    float: left;
+    display: block;
+    padding-left: 0.4rem;
+    height: 1.25rem;
+    line-height: 1.25rem; }
+
 .modal-open {
   overflow: hidden; }
 
@@ -3846,7 +3895,7 @@ button.close {
   position: relative;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 0 solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0; }
 
@@ -3865,7 +3914,7 @@ button.close {
 
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5; }
+  border-bottom: 0 solid #e5e5e5; }
   .modal-header::after {
     content: "";
     display: table;

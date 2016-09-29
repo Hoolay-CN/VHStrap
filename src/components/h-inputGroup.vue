@@ -1,3 +1,5 @@
+<!--version 9.29-->
+
 <template lang="html">
 	<div class="input-group">
 		<span class="input-group-addon" v-if="showAddonLeft" @click="_onClick">
