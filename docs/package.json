@@ -1,0 +1,22 @@
+{
+  "name": "docs",
+  "version": "0.0.0",
+  "description": "A vue project.",
+  "private": true,
+  "keywords": [],
+  "scripts": {
+    "dev": "cooking watch",
+    "dist": "cooking build -p",
+    "deploy": "cooking build --no-color"
+  },
+  "author": "charlie",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "*"
+  },
+  "devDependencies": {
+    "github-markdown-css": "^2.4.1",
+    "highlight.js": "^9.7.0",
+    "vue-router": "^0.7.13"
+  }
+}

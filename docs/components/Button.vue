@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
   export default {
     data: () => {
       return {
@@ -35,11 +35,8 @@
         this.channel = channels[Math.floor(Math.random() * channels.length)];
       },
     },
-    created: function() {
-      console.log('created');
-    },
     ready: function() {
-      console.warn('other ready');
+      console.info('Inner button');
     }
   }
 </script>
