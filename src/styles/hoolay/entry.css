@@ -3862,6 +3862,52 @@ h4.modal-title,
     height: 1.25rem;
     line-height: 1.25rem; }
 
+.hoolay-notification {
+  width: 330px;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  position: fixed;
+  right: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s, transform .3s, right .3s, top 0.4s;
+  overflow: hidden;
+  z-index: 2000; }
+  .hoolay-notification__group > span {
+    font-size: 16px;
+    color: #1f2d3d; }
+  .hoolay-notification__group > p {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 10px 0 0 0;
+    color: #8492a6;
+    text-align: justify; }
+  .hoolay-notification__icon {
+    font-size: 32px !important;
+    float: left;
+    position: relative;
+    top: 3px;
+    left: 5px;
+    line-height: 1em; }
+  .hoolay-notification__closeBtn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    color: #C0CCDA;
+    font-size: 14px; }
+    .hoolay-notification__closeBtn:hover {
+      color: #99A9BF; }
+  .hoolay-notification .icon-right {
+    color: #5DB860; }
+  .hoolay-notification .icon-error {
+    color: #D85653; }
+  .hoolay-notification .icon-info {
+    color: #5D8FDC; }
+  .hoolay-notification .icon-warn {
+    color: #EFAE57; }
+
 .modal-open {
   overflow: hidden; }
 

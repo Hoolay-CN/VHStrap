@@ -109,7 +109,7 @@ function md2vue(options) {
 
 			// Write file buffer
 			file.path = file.path.replace('.md', '.vue');
-			file.contents = Buffer.allocUnsafe(source.length).fill(source);
+			file.contents = new Buffer(source);
 		}
 
 		if (file.isStream()) {

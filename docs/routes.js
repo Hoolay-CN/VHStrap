@@ -33,6 +33,10 @@ router.map({
 		title: 'Icons',
 		component: resolve => require(['./pages/icons'], resolve)
 	},
+	'/notifications': {
+		title: 'Notifications',
+		component: resolve => require(['./pages/notifications'], resolve)
+	},
 });
 
 export default function(app, selector) {

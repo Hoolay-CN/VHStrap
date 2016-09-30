@@ -1,3 +1,6 @@
+// namespace
+$ns: hoolay;
+
 $hoolay-bg: #0096FF;
 $primary-bg: #0F74D5;
 $success-bg: #5DB860;
@@ -42,3 +45,6 @@ $modal-footer-padding:         10px;
 
 //forms
 $input-border-focus:           $hoolay-bg !default;
+
+//zindex
+$zindex-notification: 2000;
