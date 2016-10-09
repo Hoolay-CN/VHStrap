@@ -1,7 +1,5 @@
 # Welcome
 
-
-
 ## hello
 
 
@@ -22,14 +20,9 @@ document.body.querySelector('body')
 
 <button class="btn btn-outline-hoolay" @click="onClick()">Click Me</button>
 
-<hlll input-type="select" label-tag="Example select" input-status="success">
-	This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
-</hlll>
-
 <script>
   import OButton from 'src/components/Button.vue';
   import Hello from '../components/Button.vue';
-	import hlll from 'src/components/h-formGroup.vue';
 
   export default {
     data() {
@@ -45,7 +38,6 @@ document.body.querySelector('body')
     components: {
       OButton,
       Hello,
-			hlll
     }
   }
 </script>

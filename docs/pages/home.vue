@@ -11,15 +11,11 @@
 <p><hello text="xxxb" channel="hoolay">Hello</hello></p>
 <p><o-button text="abc" channel="warning">Hello2</o-button></p>
 <p><button class="btn btn-outline-hoolay" @click="onClick()">Click Me</button></p>
-<hlll input-type="select" label-tag="Example select" input-status="success">
-	This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.
-</hlll>
 </section></template>
 
 <script>
   import OButton from 'src/components/Button.vue';
   import Hello from '../components/Button.vue';
-	import hlll from 'src/components/h-formGroup.vue';
 
   export default {
     data() {
@@ -35,7 +31,6 @@
     components: {
       OButton,
       Hello,
-			hlll
     }
   }
 </script>
