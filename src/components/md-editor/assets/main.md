@@ -1,5 +1,5 @@
 ## What's this ?
-A enjoyable markdown editor with inline image uploader . Like Github.com ~
+An enjoyable markdown editor with inline image uploader . Like Github.com ~
 
 **:Status Developing & Don't use in production !**
 
