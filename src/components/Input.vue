@@ -6,7 +6,7 @@
 		</span>
 		<input
 			class="form-control"
-			:style="{ text-align: textAlign }"
+			:style="{ textAlign: textAlign }"
 			:type="type"
 			:placeholder="placeholder"
 			:disabled="disabled"
@@ -27,13 +27,10 @@
 			}
 		},
 		props: {
+			textAlign: String,
 			type: {
 				type: String,
 				default: 'text',
-			},
-			textAlign: {
-				type: String,
-				default: 'left'
 			},
 			prependAddon: {
 				type: Boolean,

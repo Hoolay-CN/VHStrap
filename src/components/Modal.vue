@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" @click="_onClose">
+          <button type="button" class="close" @click="onClose">
             <span>&times;</span>
           </button>
           <h4 class="modal-title">{{ title }}</h4>
@@ -43,7 +43,7 @@
       }
     },
     methods: {
-      _onClose: function() {
+      onClose: function() {
         this.visible = false;
         (typeof this.onClose === 'function') && this.onClose();
       }
@@ -51,13 +51,3 @@
   }
 
 </script>
-
-<style lang="sass">
-  .vh-modal.modal {
-    display: block;
-    background-color: rgba(0, 0, 0, .5);
-    .modal-content {
-      border-radius: 2px;
-    }
-  }
-</style>

@@ -3820,6 +3820,12 @@ h4.modal-title,
 .modal-footer {
   padding: 10px; }
 
+.vh-modal.modal {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .vh-modal.modal .modal-content {
+    border-radius: 2px; }
+
 .form-control:focus {
   box-shadow: 0 0 2px #0096FF; }
 
