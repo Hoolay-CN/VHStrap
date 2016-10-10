@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group">
-    <button :class="['btn','btn-' + channel]" :disabled="isDisabled" type="button">
+    <button :class="['btn','btn-' + type]" :disabled="isDisabled" type="button">
       {{ text }}
       <slot></slot>
     </button>
@@ -20,7 +20,7 @@
         type: String,
         required: true,
       },
-      channel: {
+      type: {
         type: String,
         default: 'default',
       },
@@ -29,12 +29,7 @@
         default: false
       }
     },
-    methods: {
-      switchChannel: function() {
-        let channels = ['hoolay', 'primary', 'success', 'warning', 'info'];
-        this.channel = channels[Math.floor(Math.random() * channels.length)];
-      },
-    },
+    methods: {},
     created: function() {
       console.log('created');
     },

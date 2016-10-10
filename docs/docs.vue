@@ -9,7 +9,13 @@
           <a v-link="{ path: '/buttons' }">Buttons</a>
         </li>
         <li class="list-group-item">
+          <a v-link="{ path: '/checkbox' }">Checkbox</a>
+        </li>
+        <li class="list-group-item">
           <a v-link="{ path: '/form' }">Form</a>
+        </li>
+        <li class="list-group-item">
+          <a v-link="{ path: '/notifications' }">Notifications</a>
         </li>
         <li class="list-group-item">
           <a v-link="{ path: '/icons' }">Icons</a>

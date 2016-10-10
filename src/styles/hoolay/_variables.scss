@@ -1,16 +1,51 @@
 // namespace
 $ns: hoolay;
 
-$hoolay-bg: #0096FF;
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+
+//$gray-dark:                 #373a3c !default;
+//$gray:                      #55595c !default;
+//$gray-light:                #818a91 !default;
+//$gray-lighter:              #eceeef !default;
+//$gray-lightest:             #f7f7f9 !default;
+//
+//$brand-primary:             #0275d8 !default;
+//$brand-success:             #5cb85c !default;
+//$brand-info:                #5bc0de !default;
+//$brand-warning:             #f0ad4e !default;
+//$brand-danger:              #d9534f !default;
+//$brand-inverse:             $gray-dark !default;
+
+$brand-hoolay: #0096ff;
+
+// Background
+
+$hoolay-bg: $brand-hoolay;
 $primary-bg: #0F74D5;
 $success-bg: #5DB860;
 $info-bg: #5D8FDC;
 $warning-bg: #EFAE57;
 $error-bg: #D85653;
 
-// change all the border-radius to 2px
-$border-radius:2px;
+// Border
+$border-radius-base: 2px;
 
+// Change all the border-radius to 2px
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-color-base: $gray;
+$border-base: $border-width-base $border-style-base $border-color-base;
+$border-radius-base: 2px;
+$border-radius-circle: 100%;
+$shadow-base: 0 0 1px rgba(0, 0, 0, 0.18);
+
+/* Disable base
+-------------------------- */
+$disabled-fill-base: #EFF2F7;
+$disabled-color-base: #bbb;
+$disabled-border-base: #D3DCE6;
 
 // btn color
 $btn-hoolay-color:            #fff;

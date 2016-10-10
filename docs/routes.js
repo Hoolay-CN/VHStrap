@@ -25,6 +25,10 @@ router.map({
 		title: 'Modal',
 		component: resolve => require(['./pages/buttons'], resolve)
 	},
+	'/checkbox': {
+		title: 'Checkbox',
+		component: resolve => require(['./pages/checkbox'], resolve)
+	},
 	'/form': {
 		title: 'Form',
 		component: resolve => require(['./pages/form'], resolve)

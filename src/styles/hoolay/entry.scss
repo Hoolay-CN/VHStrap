@@ -6,9 +6,9 @@
  */
 
 // Core variables and mixins
-@import "./variables";
 @import "../base/variables";
 @import "../base/mixins";
+@import "./variables";
 
 // Reset and dependencies
 @import "../base/normalize";
@@ -50,6 +50,7 @@
 @import "input-hoolay";
 @import "form-hoolay";
 @import "notifications";
+@import "checkbox";
 
 
 // Components w/ JavaScript

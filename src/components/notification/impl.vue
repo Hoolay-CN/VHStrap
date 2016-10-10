@@ -1,10 +1,10 @@
 <template>
-  <div class="hoolay-notification" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer()" @mouseleave="startTimer()">
-    <icon class="hoolay-notification__icon" :type="typeClass" v-if="type"></icon>
-    <div class="hoolay-notification__group" :style="{ 'margin-left': typeClass ? '55px' : '0' }">
+  <div class="vh-notification" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer()" @mouseleave="startTimer()">
+    <icon class="vh-notification__icon" :type="typeClass" v-if="type"></icon>
+    <div class="vh-notification__group" :style="{ 'margin-left': typeClass ? '55px' : '0' }">
       <span>{{ title }}</span>
       <p>{{ message }}</p>
-      <div class="hoolay-notification__closeBtn hoolay-icon-close" @click="handleClose()">x</div>
+      <div class="vh-notification__closeBtn vh-icon-close" @click="handleClose()">x</div>
     </div>
   </div>
 </template>

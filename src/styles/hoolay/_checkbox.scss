@@ -1,0 +1,163 @@
+.vh {
+    $fill-base: #fff;
+    $checkbox-font-size: 14px;
+    $checkbox-color: $gray-dark;
+    $checkbox-input-height: 18px;
+    $checkbox-input-width: 18px;
+    $checkbox-input-border-radius: $border-radius-base;
+    $checkbox-input-fill: #fff;
+    $checkbox-input-border: 1px solid $gray;
+    $checkbox-input-border-color: $gray;
+    $checkbox-icon-color: #fff;
+
+    $checkbox-disabled-input-border-color: $disabled-border-base;
+    $checkbox-disabled-input-fill: $disabled-fill-base;
+    $checkbox-disabled-icon-color: $disabled-fill-base;
+
+    $checkbox-disabled-checked-input-fill: $disabled-border-base;
+    $checkbox-disabled-checked-input-border-color: $disabled-border-base;
+    $checkbox-disabled-checked-icon-color: #fff;
+
+    $checkbox-checked-input-border-color: $brand-hoolay;
+    $checkbox-checked-input-fill: $brand-hoolay;
+    $checkbox-checked-icon-color: $fill-base;
+
+    $checkbox-input-shadow-hover: $shadow-base;
+    $checkbox-input-border-color-hover: $brand-hoolay;
+
+    &-checkbox {
+      color: $checkbox-color;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+      & ~ & {
+        margin:0 10px;
+      }
+
+      &__input {
+        white-space: nowrap;
+        cursor: pointer;
+        outline: none;
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        vertical-align: middle;
+      }
+      &__inner {
+        display: inline-block;
+        position: relative;
+        border: 1px solid $gray-light;
+        border-radius: 2px;
+        box-sizing: border-box;
+        //rect: $checkbox-input-width $checkbox-input-height $checkbox-input-fill;
+        height: $checkbox-input-height;
+        width: $checkbox-input-width;
+        transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),
+        background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+
+        &:not(.is-disabled):hover {
+          border-color: $checkbox-input-border-color-hover;
+        }
+
+        &::after {
+          content: "";
+          border: 2px solid $checkbox-checked-icon-color;
+          border-left: 0;
+          border-top: 0;
+          height: 11px;
+          left: 6px;
+          position: absolute;
+          top: 2px;
+          transform: rotate(45deg) scaleY(0);
+          width: 5px;
+          transition: transform .15s cubic-bezier(.71,-.46,.88,.6) .05s;
+          transform-origin: center;
+        }
+
+        &.is-disabled {
+          background-color: $checkbox-disabled-input-fill;
+          border-color: $checkbox-disabled-input-border-color;
+          cursor: not-allowed;
+
+          &::after {
+            cursor: not-allowed;
+            border-color: $checkbox-disabled-icon-color;
+          }
+
+          & + .el-checkbox__label {
+            cursor: not-allowed;
+          }
+        }
+
+        &.is-checked {
+          background-color: $checkbox-checked-input-fill;
+          border-color: $checkbox-checked-input-border-color;
+
+          &::after {
+            transform: rotate(45deg) scaleY(1);
+          }
+        }
+
+        &.is-focus {
+          border-color: $checkbox-input-border-color-hover;
+        }
+
+        &.is-disabled.is-checked {
+          background-color: $checkbox-disabled-checked-input-fill;
+          border-color: $checkbox-disabled-checked-input-border-color;
+
+          &::after {
+            border-color: $checkbox-disabled-checked-icon-color;
+          }
+        }
+
+        &.is-indeterminate {
+          background-color: $checkbox-checked-input-fill;
+          border-color: $checkbox-checked-input-border-color;
+
+          &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            border: 1px solid $checkbox-checked-icon-color;
+            margin-top: -1px;
+            left: 3px;
+            right: 3px;
+            top: 50%;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+
+        &.is-disabled.is-indeterminate {
+          background-color: $checkbox-disabled-checked-input-fill;
+          border-color: $checkbox-disabled-checked-input-border-color;
+
+          &::before {
+            border-color: $checkbox-disabled-checked-icon-color;
+          }
+        }
+      }
+
+      &__original {
+        opacity: 0;
+        outline: none;
+        position: absolute;
+        margin: 0;
+        left: -999px;
+      }
+
+      &__label {
+        font-size: $checkbox-font-size;
+        padding-left: 5px;
+      }
+    }
+}

@@ -1,43 +1,10 @@
 # Welcome
 
-## hello
+### Step 1 .
+
+[http://v4-alpha.getbootstrap.com/getting-started/introduction/](http://v4-alpha.getbootstrap.com/getting-started/introduction/)
 
 
-> hello
+### Step 2 .
 
-<strong>sss</strong>
-
-```javascript
-document.getElementById('sss')
-document.body.querySelector('body')
-```
-
-<strong>____ {{name}}</strong>
-
-<hello text="xxxb" channel="hoolay">Hello</hello>
-
-<o-button text="abc" channel="warning">Hello2</o-button>
-
-<button class="btn btn-outline-hoolay" @click="onClick()">Click Me</button>
-
-<script>
-  import OButton from 'src/components/Button.vue';
-  import Hello from '../components/Button.vue';
-
-  export default {
-    data() {
-        return {
-            name: 'HOME4',
-        }
-    },
-    methods: {
-      onClick() {
-        alert('click')
-      }
-    },
-    components: {
-      OButton,
-      Hello,
-    }
-  }
-</script>
+[https://github.com/vuejs/vuejs.org/tree/1.0](https://github.com/vuejs/vuejs.org/tree/1.0)
