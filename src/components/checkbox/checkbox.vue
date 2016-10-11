@@ -34,6 +34,7 @@
       />
     </span>
     <span class="vh-checkbox__label">
+      {{ label }}
       <slot></slot>
     </span>
   </label>
@@ -48,6 +49,7 @@
       value: {},
       name: String,
       indeterminate: Boolean,
+      label: String,
       disabled: Boolean,
       onChange: Function,
       trueLabel: [String, Number],
@@ -76,7 +78,7 @@
         if (is.boolean(this._value)) {
           return this._value;
         } else if (is.array(this._value)) {
-          // return !!~this._value.indexOf(this.label);
+           return !!~this._value.indexOf(this.label);
         } else if ( is.string(this._value) || is.number(this._value)) {
           return this._value === this.trueLabel;
         }

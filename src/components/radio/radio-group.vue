@@ -1,5 +1,5 @@
 <template>
-  <div class="vh-form-check__group">
+  <div class="vh-form-radio-group">
     <slot></slot>
   </div>
 </template>
@@ -8,15 +8,22 @@
   import consts from '../common/constants';
 
   export default {
-    name: 'VhCheckboxGroup',
+    name: 'VhRadioGroup',
+
+    componentName: 'radio-group',
 
     props: {
-      value: {}
+      value: [String, Number],
+      size: String
     },
-
+    created() {
+      // do this @parent
+//      this.$on('input', (newValue) => {
+//        this.value = newValue;
+//      });
+    },
     watch: {
       value(value) {
-        // @Todo `event` change will be do twice (eg: `custom`, `native`)
         this.$emit('change', value);
         this.$dispatch(consts.NS_EVENT_FORM_XNATIVE_CHANGE, value);
       }

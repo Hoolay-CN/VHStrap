@@ -7,6 +7,7 @@
   </form>
 </template>
 <script>
+  import Vue from 'vue';
   import consts from '../common/constants';
 
   export default {
@@ -33,10 +34,17 @@
     },
     created() {
       this.$on(consts.NS_EVENT_FORM_ADD_FIELD, (vmFormItem) => {
+
+        Vue.config.debug && console.info(`[form - ${consts.NS_EVENT_FORM_ADD_FIELD}] event type received . ${vmFormItem.$options.name}`);
+
         this.fields[vmFormItem.prop] = vmFormItem;
         this.fieldLength++;
       });
+
       this.$on(consts.NS_EVENT_FORM_REMOVE_FIELD, (vmFormItem) => {
+
+        Vue.config.debug && console.info(`[form - ${consts.NS_EVENT_FORM_REMOVE_FIELD}] event type received . ${vmFormItem.$options.name}`);
+
         delete this.fields[vmFormItem.prop];
         this.fieldLength--;
       });
