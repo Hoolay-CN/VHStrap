@@ -1,5 +1,5 @@
 // namespace
-$ns: hoolay;
+$ns: vh;
 
 // Colors
 //
@@ -20,17 +20,15 @@ $ns: hoolay;
 
 $brand-hoolay: #0096ff;
 
-// Background
+// Components
 
+// Background
 $hoolay-bg: $brand-hoolay;
 $primary-bg: #0F74D5;
 $success-bg: #5DB860;
 $info-bg: #5D8FDC;
 $warning-bg: #EFAE57;
 $error-bg: #D85653;
-
-// Border
-$border-radius-base: 2px;
 
 // Change all the border-radius to 2px
 $border-width-base: 1px;
@@ -73,13 +71,17 @@ $btn-error-bg:                $error-bg;
 $btn-error-border:            $error-bg;
 
 $border-width: 1px !default;
-//modal
+
+// modal
 $modal-content-border-width:   0;       //put off the border of modal content
 $modal-footer-border-width:    $border-width !default;
 $modal-footer-padding:         10px;
 
-//forms
-$input-border-focus:           $hoolay-bg !default;
+// forms
+$input-border-focus:           $brand-hoolay !default;
+$input-border-radius:          $border-radius-base;
+$input-border-radius-lg:       $border-radius-base;
+$input-border-radius-sm:       $border-radius-base;
 
-//zindex
+// z-index
 $zindex-notification: 2000;

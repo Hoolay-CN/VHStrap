@@ -1,7 +1,7 @@
-import fn from './checkbox.vue';
+import VhCheckbox from './checkbox.vue';
+import VhCheckboxGroup from './checkbox-group.vue';
 
-fn.install = function(Vue) {
-  Vue.component('vh-checkbox', fn);
+module.exports = {
+  VhCheckbox,
+  VhCheckboxGroup
 };
-
-module.exports = fn;

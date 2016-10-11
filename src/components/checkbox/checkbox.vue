@@ -42,6 +42,8 @@
   import is from 'is_js';
 
   export default {
+    name: 'VhCheckbox',
+
     props: {
       value: {},
       name: String,
@@ -59,9 +61,12 @@
         },
         set(newValue) {
           if (this.value !== undefined) {
-            // @Todo Handle multiple Value Types
+
+            // @Todo Handle multiple Value Types . 暂时不支持对应数组多选，可以手动name + slot-content处理
             is.boolean(this.value) && (this.value = newValue);
+
             this.$emit('input', newValue);
+
           } else {
             this.$parent.$emit('input', newValue);
           }
@@ -86,7 +91,7 @@
 
     watch: {
       checked(sure) {
-        is.function(this.onChange) && this.onChange(sure);
+        is.function(this.onChange) && this.onChange(sure, this);
       }
     }
   };

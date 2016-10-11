@@ -23,8 +23,6 @@
 @import "../base/tables";
 @import "../base/forms";
 @import "../base/buttons";
-@import "./button-hoolay";
-// @import "./alert-hoolay";
 
 // Components
 @import "../base/animation";
@@ -46,13 +44,6 @@
 @import "../base/responsive-embed";
 @import "../base/close";
 
-@import "modal-hoolay";
-@import "input-hoolay";
-@import "form-hoolay";
-@import "notifications";
-@import "checkbox";
-
-
 // Components w/ JavaScript
 @import "../base/modal";
 @import "../base/tooltip";
@@ -61,3 +52,12 @@
 
 // Utility classes
 @import "../base/utilities";
+
+// Local
+@import "button";
+@import "input";
+@import "modal";
+@import "form";
+@import "notifications";
+@import "checkbox";
+
