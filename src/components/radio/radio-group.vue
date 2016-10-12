@@ -25,7 +25,7 @@
     watch: {
       value(value) {
         this.$emit('change', value);
-        this.$dispatch(consts.NS_EVENT_FORM_XNATIVE_CHANGE, value);
+        this.$dispatch(consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, value);
       }
     }
   };

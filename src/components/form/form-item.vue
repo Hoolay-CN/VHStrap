@@ -106,9 +106,14 @@
        * @returns {boolean}
        */
       validate(trigger, cb = () => {}) {
+
+        Vue.config.debug && console.info(`[form-item - ${this.prop}] try to validating ...`);
+
         let rules = this.getFilteredRule(trigger);
 
         if (!rules || rules.length === 0) {
+          Vue.config.debug && console.warn(`[form-item - ${this.prop}] but nothing to validate !`);
+
           cb && cb();
           return true;
         }
@@ -122,6 +127,8 @@
         let model = {};
 
         model[this.prop] = this.fieldValue;
+
+        Vue.config.debug && console.info(`[form-item - ${this.prop}] start validate :descriptor ${descriptor} :model ${model} !`);
 
         validator.validate(model, {firstFields: true}, (errors, fields) => {
           this.valid = !errors;
@@ -175,20 +182,20 @@
       },
       // Default Blur Validate Hook
       onFieldBlur() {
-        Vue.config.debug && console.info('[form-item] received `blue` event from child inputer');
+        Vue.config.debug && console.info(`[form-item - ${this.prop}] received *blur* event from child inputer`);
 
-        this.validate('blur');
+        typeof this.form.rules !== 'undefined' && this.validate('blur');
       },
       // Default Change Validate Hook
       onFieldChange() {
-        Vue.config.debug && console.info('[form-item] received `change` event from child inputer');
+        Vue.config.debug && console.info(`[form-item - ${this.prop}] received *change* event from child inputer`);
 
         if (this.validateDisabled) {
           this.validateDisabled = false;
           return;
         }
 
-        this.validate('change');
+        typeof this.form.rules !== 'undefined' && this.validate('change');
       }
     },
     ready() {
@@ -206,8 +213,8 @@
       }
 
       // Observe Actual Input Event
-      this.$on(consts.NS_EVENT_FORM_XNATIVE_BLUR, this.onFieldBlur);
-      this.$on(consts.NS_EVENT_FORM_XNATIVE_CHANGE, this.onFieldChange);
+      this.$on(consts.NS_EVENT_FORM_ITEM_XNATIVE_BLUR, this.onFieldBlur);
+      this.$on(consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, this.onFieldChange);
     },
     beforeDestroy() {
       this.$dispatch(consts.NS_EVENT_FORM_REMOVE_FIELD, this);
