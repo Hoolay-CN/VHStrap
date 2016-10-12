@@ -41,12 +41,9 @@
       right: 20px;
       top: 15px;
       cursor: pointer;
-      color: #C0CCDA;
-      font-size: 14px;
+      font-size: 16px !important;
 
-      &:hover {
-        color: #99A9BF;
-      }
+      &:hover {}
     }
 
     & .icon-right {

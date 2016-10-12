@@ -1,14 +1,43 @@
-h4.modal-title,
-.modal-header .close {
-    font-size: ($font-size-base * 1.25);
-}
-.modal-footer {
-  padding: $modal-footer-padding;
-}
-.vh-modal.modal {
-  display: block;
-  background-color: rgba(0, 0, 0, .5);
-  .modal-content {
-    border-radius: 2px;
+.vh {
+  &-modal {
+    display: none;
+    background-color: rgba(0, 0, 0, .5);
+    .modal-content {
+      border-radius: 2px;
+    }
+    .modal-title, .modal-header .close {
+      font-size: ($font-size-base * 1.25);
+    }
+    .modal-footer {
+      padding: 15px;
+    }
+
+    &.fade {
+    transition: all 0.3s ease;
+    }
+    &.fade.in {
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    &.zoom .modal-dialog {
+      -webkit-transform: scale(0.1);
+      -moz-transform: scale(0.1);
+      -ms-transform: scale(0.1);
+      transform: scale(0.1);
+      top: 256px;
+      opacity: 0;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    &.zoom.in .modal-dialog {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      -webkit-transform: translate3d(0, -256px, 0);
+      transform: translate3d(0, -256px, 0);
+      opacity: 1;
+    }
   }
 }

@@ -1,6 +1,24 @@
+.btn , button {
+    -webkit-user-select: none;
+    -webkit-appearance: none;
+    outline: 0 !important;
+}
+
+.btn-default {
+  color: #555555;
+  background-color: #ececec;
+  &:hover {
+    background-color: #dddddd;
+  }
+}
+
 .btn-hoolay {
   @include button-variant($btn-hoolay-color, $btn-hoolay-bg, $btn-hoolay-border);
 }
 .btn-outline-hoolay {
   @include button-outline-variant($btn-hoolay-bg);
+}
+
+.close {
+  font-weight: 300;
 }

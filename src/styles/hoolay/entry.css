@@ -2560,7 +2560,7 @@ input[type="button"].btn-block {
   background-image: none \9;
   background-size: 8px 10px;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
+  border-radius: 2px;
   -moz-appearance: none;
   -webkit-appearance: none; }
   .custom-select:focus {
@@ -4692,6 +4692,17 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .hidden-print {
     display: none !important; } }
 
+.btn, button {
+  -webkit-user-select: none;
+  -webkit-appearance: none;
+  outline: 0 !important; }
+
+.btn-default {
+  color: #555555;
+  background-color: #ececec; }
+  .btn-default:hover {
+    background-color: #dddddd; }
+
 .btn-hoolay {
   color: #fff;
   background-color: #0096ff;
@@ -4753,6 +4764,9 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     border-color: #66c0ff; }
   .btn-outline-hoolay.disabled:hover, .btn-outline-hoolay:disabled:hover {
     border-color: #66c0ff; }
+
+.close {
+  font-weight: 300; }
 
 .hoolay-upload-wrap {
   position: relative; }
@@ -4975,18 +4989,37 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   .vh-form-radio-group .vh-radio {
     font-size: var(14px); }
 
-h4.modal-title,
-.modal-header .close {
-  font-size: 1.25rem; }
-
-.modal-footer {
-  padding: 10px; }
-
-.vh-modal.modal {
-  display: block;
+.vh-modal {
+  display: none;
   background-color: rgba(0, 0, 0, 0.5); }
-  .vh-modal.modal .modal-content {
+  .vh-modal .modal-content {
     border-radius: 2px; }
+  .vh-modal .modal-title, .vh-modal .modal-header .close {
+    font-size: 1.25rem; }
+  .vh-modal .modal-footer {
+    padding: 15px; }
+  .vh-modal.fade {
+    transition: all 0.3s ease; }
+  .vh-modal.fade.in {
+    background-color: rgba(0, 0, 0, 0.5); }
+  .vh-modal.zoom .modal-dialog {
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    top: 256px;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s; }
+  .vh-modal.zoom.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: translate3d(0, -256px, 0);
+    transform: translate3d(0, -256px, 0);
+    opacity: 1; }
 
 .vh-notification {
   width: 330px;
@@ -5021,10 +5054,7 @@ h4.modal-title,
     right: 20px;
     top: 15px;
     cursor: pointer;
-    color: #C0CCDA;
-    font-size: 14px; }
-    .vh-notification__closeBtn:hover {
-      color: #99A9BF; }
+    font-size: 16px !important; }
   .vh-notification .icon-right {
     color: #5DB860; }
   .vh-notification .icon-error {

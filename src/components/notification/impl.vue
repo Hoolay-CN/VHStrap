@@ -4,7 +4,7 @@
     <div class="vh-notification__group" :style="{ 'margin-left': typeClass ? '55px' : '0' }">
       <span>{{ title }}</span>
       <p>{{ message }}</p>
-      <div class="vh-notification__closeBtn vh-icon-close" @click="handleClose()">x</div>
+      <div class="vh-notification__closeBtn close" @click="handleClose()">&times;</div>
     </div>
   </div>
 </template>
