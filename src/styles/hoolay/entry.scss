@@ -46,9 +46,9 @@
 
 // Components w/ JavaScript
 @import "../base/modal";
-@import "../base/tooltip";
-@import "../base/popover";
-@import "../base/carousel";
+//@import "../base/tooltip";
+//@import "../base/popover";
+//@import "../base/carousel";
 
 // Utility classes
 @import "../base/utilities";
@@ -62,5 +62,7 @@
 @import "radio";
 @import "modal";
 @import "dropdown";
+@import "tooltip";
+@import "popover";
 @import "notifications";
 
