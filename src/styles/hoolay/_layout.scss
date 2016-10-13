@@ -1,0 +1,36 @@
+.vh {
+  // Container widths
+  //
+  // Set the container width, and override it for fixed navbars in media queries.
+  $vh-grid-gutter-unit: 4px;
+  $vh-grid-columns: 24;
+
+  &-container {
+    @include make-container($vh-grid-gutter-unit * 4);
+    @include make-container-max-widths();
+  }
+
+  // Fluid container
+  //
+  // Utilizes the mixin meant for fixed width containers, but without any defined
+  // width for fluid, full width layouts.
+
+  &-container-fluid {
+    @include make-container($vh-grid-gutter-unit * 4);
+  }
+
+  // Row
+  //
+  // Rows contain and clear the floats of your columns.
+
+  &-row {
+    @include make-row($vh-grid-gutter-unit * 4);
+
+    // Columns
+    //
+    // Common styles for small and large grid columns
+
+    @include make-grid-columns($vh-grid-columns, $vh-grid-gutter-unit * 4);
+  }
+
+}

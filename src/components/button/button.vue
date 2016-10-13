@@ -1,6 +1,6 @@
 <template>
   <div class="btn-group">
-    <button :class="['btn','btn-' + type]" :disabled="isDisabled" type="button">
+    <button :class="['btn','btn-' + type]" :disabled="disabled" type="button">
       {{ text }}
       <slot></slot>
     </button>
@@ -24,7 +24,7 @@
         type: String,
         default: 'default',
       },
-      isDisabled: {
+      disabled: {
         type: Boolean,
         default: false
       }

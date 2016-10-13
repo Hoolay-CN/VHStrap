@@ -39,6 +39,10 @@ $border-radius-base: 2px;
 $border-radius-circle: 100%;
 $shadow-base: 0 0 1px rgba(0, 0, 0, 0.18);
 
+// Bb
+$border-radius: $border-radius-base;
+$border-width: 1px;
+
 /* Disable base
 -------------------------- */
 $disabled-fill-base: #EFF2F7;
@@ -70,12 +74,14 @@ $btn-error-color:             #fff;
 $btn-error-bg:                $error-bg;
 $btn-error-border:            $error-bg;
 
-$border-width: 1px !default;
+$btn-border-radius: $border-radius-base;
 
 // modal
 $modal-content-border-width:   0;       //put off the border of modal content
 $modal-footer-border-width:    $border-width !default;
 $modal-footer-padding:         10px;
+
+// dropdown
 
 // forms
 $input-border-focus:           $brand-hoolay !default;
