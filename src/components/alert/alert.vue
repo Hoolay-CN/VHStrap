@@ -1,13 +1,10 @@
 <template lang="html">
-  <div v-show="showAlert"
-       :style="{ width : width }"
+  <div v-if="visible"
        class="alert alert-{{ type }}">
-    <button type="button" name="button" @click="showCtr()" class="btn btn-default">
-      点击显示
-    </button>
-    <button type="button" class="close" data-dismiss="alert"
-            @click="showAlert = false">
-      <span aria-hidden="true">&times;</span>
+    <button type="button"
+            class="close"
+            @click="visible = false">
+      <span>&times;</span>
     </button>
     <slot></slot>
   </div>
@@ -16,26 +13,17 @@
 
 <script>
   export default {
-    data() {
-      return {
-        showAlert: true
-      }
-    },
+    name: 'VhAlert',
+
     props: {
-      type: {
-        type: String
+      visible: {
+        type: Boolean,
+        default: true
       },
-      width: {
-        type: String
-      }
-    },
-    methods: {
-      showCtr: function () {
-        this.showAlert = !this.showAlert;
+      type: {
+        type: String,
+        default: 'info'
       }
     }
   };
 </script>
-
-<style lang="css">
-</style>

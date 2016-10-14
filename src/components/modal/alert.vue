@@ -23,7 +23,7 @@
   import VhModal from './modal.vue';
 
   export default {
-    name: 'VhAlert',
+    name: 'VhModalAlert',
 
     data() {
       return {

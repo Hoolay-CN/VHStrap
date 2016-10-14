@@ -3,10 +3,10 @@
  */
 import Vue from 'vue';
 import VhModal from './modal.vue';
-import VhAlert from './alert.vue';
+import VhModalAlert from './alert.vue';
 
 let VhModalFn = Vue.extend(VhModal);
-let VhAlertFn = Vue.extend(VhAlert);
+let VhAlertFn = Vue.extend(VhModalAlert);
 
 let _mixins = {};
 
