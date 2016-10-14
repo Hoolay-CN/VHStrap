@@ -1,45 +1,53 @@
 <template>
-  <div class="btn-group">
-    <button :class="['btn','btn-' + type]" :disabled="disabled" type="button">
-      {{ text }}
-      <slot></slot>
-    </button>
-  </div>
+  <button
+      :class="['btn','btn-' + type, 'btn-' + size, {
+        'btn-block': block,
+        'disabled' : disabled || loading
+      }]"
+      :disabled="disabled"
+      type="button">
+    <vh-icon type="loading" v-if="loading"></vh-icon>
+    <vh-icon :type="icon" v-if="icon && !loading"></vh-icon>
+    <slot></slot>
+  </button>
 </template>
 
 <script>
+  import VhIcon from '../iconfonts/index.vue';
+
   export default {
-    data: () => {
-      return {
-        names: [],
-        loading: false,
-      };
-    },
+    name: 'VhButton',
+
     props: {
-      text: {
-        type: String,
-        required: true,
+      loading: {
+        type: Boolean
       },
       type: {
         type: String,
         default: 'default',
       },
-      disabled: {
-        type: Boolean,
-        default: false
-      }
+      size: {
+        type: String, // `sm` , `lg`
+        default: 'md'
+      },
+      icon: {
+        type: String,
+        default: ''
+      },
+      disabled: Boolean,
+      block: Boolean
     },
-    methods: {},
-    created: function() {
-      console.log('created');
-    },
-    ready: function() {
-      console.warn('other ready');
+
+    components: {
+      VhIcon
     }
   }
 </script>
-<style lang="css">
-  body {
-    font-size: 30px;
+
+<style lang="sass">
+  .btn-lg, .btn-group-lg > .btn {
+    .iconfont {
+      font-size: 1.25rem;
+    }
   }
 </style>

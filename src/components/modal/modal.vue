@@ -38,6 +38,8 @@
   import { getScrollBarWidth } from '../common/utils.js'
 
   export default {
+    name: 'VhModal',
+
     props: {
       okText: {
         type: String,

@@ -1,7 +1,3 @@
-/**
-* Created by charlie on 13/10/2016.
-*/
-<template>
   <div class="vh-pagination" v-show="labels.length > 0">
     <ul class="pagination pagination-{{ size }}">
       <li @click="_moveSlide(-1, false)"
@@ -10,7 +6,7 @@
             'disabled': currentSlide === 1
           }"
       >
-        <a href="javascript:;" class="page-link">&laquo;</a>
+        <a href="javascript:void(0);" class="page-link">&laquo;</a>
       </li>
       <li v-for="($index, n) in labels"
           track-by="$index"
@@ -19,7 +15,7 @@
             'active': current == n
           }"
       >
-        <a href="javascript:;" @click="onPage(n)" class="page-link">{{ n }}</a>
+        <a href="javascript:void(0);" @click="onPage(n)" class="page-link">{{ n }}</a>
       </li>
       <li @click="_moveSlide(1, false)"
           :class="{
@@ -27,7 +23,7 @@
             'disabled': currentSlide === totalSlide
           }"
       >
-        <a href="javascript:;" class="page-link">&raquo;</a>
+        <a href="javascript:void(0);" class="page-link">&raquo;</a>
       </li>
     </ul>
   </div>
@@ -55,7 +51,7 @@
       },
       size: {
         type: String,
-        default: 'sm' // `lg` `md`
+        default: 'sm' // `lg` `md(default)`
       },
       offset: {
         type: Number,
@@ -77,7 +73,7 @@
     },
     methods: {
       /**
-       * if dir `false` . To which slide of current page .
+       * If dir `false` . To which slide of current page .
        * @param dir, -1 or +1 , boolean
        * @param calculateCurrentSlide current page for slide show
        * @private

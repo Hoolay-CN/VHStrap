@@ -39,5 +39,30 @@
       transform: translate3d(0, -256px, 0);
       opacity: 1;
     }
+
+    &-alert {
+      & > .vh-modal {
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-dialog {
+        margin: 0;
+        min-width: 450px;
+      }
+
+      .modal-header {
+        border-bottom: none;
+      }
+      .modal-footer {
+        border-top: none;
+      }
+    }
+  }
+}
+
+.modal-open .vh-modal-alert {
+  & > .vh-modal {
+    display: flex !important;
   }
 }
