@@ -23,6 +23,9 @@
         <li class="list-group-item">
           <a v-link="{ path: '/modal' }">Modal</a>
         </li>
+        <li class="list-group-item">
+          <a v-link="{ path: '/preview' }">Preview</a>
+        </li>
       </ul>
     </aside>
     <div class="markdown-body">

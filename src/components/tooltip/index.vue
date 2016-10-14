@@ -23,7 +23,9 @@
 </template>
 
 <script>
-  import Popper from '../../mixins/popper';
+  import Popper from 'src/mixins/popper';
+
+  console.log(Popper);
 
   export default {
     name: 'VhTooltip',

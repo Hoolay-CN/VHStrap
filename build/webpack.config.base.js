@@ -13,7 +13,9 @@ module.exports = {
   resolve: {
     //root: [],
     extensions: ['', '.js', '.vue'],
-    //alias: {},
+    alias: {
+      src: rootPath + '/src/'
+    },
     //fallback: [],
   },
   // plugins: {},

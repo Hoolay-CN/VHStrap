@@ -13,6 +13,10 @@ router.map({
 		title: 'Welcome',
 		component: Home
 	},
+	'/preview': {
+		title: 'Preview',
+		component: resolve => require(['./pages/preview'], resolve)
+	},
 	'/alert': {
 		title: 'Alert',
 		component: resolve => require(['./pages/alert'], resolve)

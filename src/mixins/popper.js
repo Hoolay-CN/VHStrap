@@ -1,4 +1,4 @@
-import PopperJS from '../assets/lib/popper';
+import PopperJS from 'src/assets/lib/popper';
 
 /**
  * @link https://popper.js.org/documentation.html
@@ -9,7 +9,7 @@ import PopperJS from '../assets/lib/popper';
  * @param {Boolean} [visible=false] Visibility of the popup element.
  * @param {Boolean} [visible-arrow=false] Visibility of the arrow, no style.
  */
-export default {
+module.exports = {
   props: {
     placement: {
       type: String,

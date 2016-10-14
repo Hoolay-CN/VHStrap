@@ -20,9 +20,13 @@ cooking.set({
   extends: ['sass']
 });
 
+// cooking.add('resolve.root', [
+//   path.join(__dirname, '..', 'src')
+// ]);
+
 cooking.add('resolve.alias', {
   'src': path.join(__dirname, '..', 'src'),
-  // 'pages': path.join(__dirname, 'pages')
+  'vue': path.join(__dirname, '/node_modules/vue/')
 });
 
 // do not use cooking-vue
@@ -32,6 +36,7 @@ cooking.add('loader.vue', {
 });
 
 cooking.config.resolve.extensions.push('.vue');
+cooking.config.module.loaders.js.include = [ process.cwd(),  path.join(__dirname, '..', 'src')]
 
 cooking.add('externals', {
     // 'vue-router': 'VueRouter',
