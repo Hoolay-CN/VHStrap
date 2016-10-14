@@ -5938,6 +5938,36 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
         .vh-tooltip__popper.is-light[x-placement^="right"] .popper__arrow::after {
           border-right-color: #fff; }
 
+.vh-badge {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block; }
+  .vh-badge__content {
+    background-color: #d9534f;
+    border-radius: 10px;
+    color: #fff;
+    display: inline-block;
+    font-size: 11px;
+    height: 18px;
+    line-height: 16px;
+    padding: 0 6px;
+    text-align: center;
+    white-space: nowrap;
+    border: 1px solid #fff; }
+    .vh-badge__content.is-fixed {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      transform: translateY(-50%) translateX(100%); }
+      .vh-badge__content.is-fixed.is-dot {
+        right: 5px; }
+    .vh-badge__content.is-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      right: 0;
+      border-radius: 50%; }
+
 .vh-notification {
   width: 330px;
   padding: 15px;
