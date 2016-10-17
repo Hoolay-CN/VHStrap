@@ -105,7 +105,7 @@
        * @param cb {Function}
        * @returns {boolean}
        */
-      validate(trigger, cb = () => {}) {
+      validate(trigger, cb = (errors) => {}) {
 
         Vue.config.debug && console.info(`[form-item - ${this.prop}] try to validating ...`);
 
@@ -163,7 +163,7 @@
           return [];
         }
 
-        let rules = this.rules || (this.form.rules ? this.form.rules[this.prop] : []);
+        let rules = this.rules || ( (this.form.rules && this.form.rules[this.prop]) ? this.form.rules[this.prop] : [] );
 
         return Array.isArray(rules) ? rules : [rules];
       },

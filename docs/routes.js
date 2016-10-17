@@ -13,6 +13,18 @@ router.map({
 		title: 'Welcome',
 		component: Home
 	},
+  '/layout': {
+		title: 'Layout',
+		component: resolve => require(['./pages/layout'], resolve)
+	},
+  '/colors': {
+		title: 'Colors',
+		component: resolve => require(['./pages/colors'], resolve)
+	},
+  '/dropdown': {
+		title: 'Dropdown',
+		component: resolve => require(['./pages/dropdown'], resolve)
+	},
 	'/preview': {
 		title: 'Preview',
 		component: resolve => require(['./pages/preview'], resolve)

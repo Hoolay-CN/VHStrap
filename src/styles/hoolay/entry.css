@@ -5569,44 +5569,8 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 .close {
   font-weight: 300; }
 
-.hoolay-upload-wrap {
-  position: relative; }
-  .hoolay-upload-wrap:after {
-    content: ".";
-    display: block;
-    height: 0;
-    visibility: hidden;
-    clear: both; }
-  .hoolay-upload-wrap .hoolay-upload-file {
-    float: left;
-    position: relative;
-    padding: 0.5rem 0;
-    width: 7rem;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    color: #888;
-    background: #fff;
-    font-size: 1rem;
-    text-align: center;
-    line-height: 1.25;
-    cursor: pointer;
-    overflow: hidden; }
-    .hoolay-upload-wrap .hoolay-upload-file:hover {
-      color: #444;
-      background: #eee;
-      border-color: #ccc; }
-    .hoolay-upload-wrap .hoolay-upload-file input {
-      position: absolute;
-      right: 0;
-      top: 0;
-      opacity: 0;
-      cursor: pointer; }
-  .hoolay-upload-wrap .hoolay-upload-status {
-    float: left;
-    display: block;
-    padding-left: 0.4rem;
-    height: 1.25rem;
-    line-height: 1.25rem; }
+.has-danger .form-control-feedback {
+  font-size: 0.75rem; }
 
 .form-control:focus {
   box-shadow: 0 0 2px #0096ff; }

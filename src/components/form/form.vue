@@ -18,7 +18,6 @@
     props: {
       model: Object,
       rules: Object,
-      type: String,
       labelWidth: String,
       labelSuffix: {
         type: String,
