@@ -1,10 +1,17 @@
 # Notifications
 
-### 基本用法
+#### Basic
 
-<div class="lead" style="padding: 30px;">
+```javascript
+import NotificationFactory, { Notification } from 'src/components/notification';
+```
+
+<div class="lead" style="padding: 20px 0;">
   <button class="btn btn-outline-hoolay" @click="showNotification()">
     随机显示Notifications
+  </button>
+  <button class="btn btn-secondary" @click="notCloseNotification">
+    不会关闭的通知
   </button>
 </div>
 
@@ -13,22 +20,24 @@
   <button class="btn btn-outline-hoolay" @click="showNotification()">
     随机显示Notifications
   </button>
+  <button class="btn btn-secondary" @click="notCloseNotification">
+    不会关闭的通知
+  </button>
 </div>
 
 <script type="text/babel">
-  import Notification from 'src/components/notification';
+  import NotificationFactory, { Notification } from 'src/components/notification';
 
   export default {
     methods: {
       showNotification: function() {
-        let vmNotify = Notification();
-
-        vmNotify.title = '我是一个警告s';
-        vmNotify.message = '邮箱必须完成!';
-
-        vmNotify.type = ['success', 'warning', 'error', 'info'][Math.floor(Math.random()*4)];
-        vmNotify.visible = true;
-
+        let type = ['success', 'warning', 'error', 'info'][Math.floor(Math.random()*4)];
+        NotificationFactory[type]('hello');
+      },
+      notCloseNotification() {
+        NotificationFactory.alert('我不会关闭哟', {
+          duration: 0
+        });
       }
     },
     components: {}
@@ -37,26 +46,36 @@
 ```
 
 <script type="text/babel">
-  import Notification from 'src/components/notification';
+  import NotificationFactory, { Notification } from 'src/components/notification';
 
   export default {
     methods: {
       showNotification: function() {
-        let vmNotify = Notification();
-
-        vmNotify.title = '我是一个警告s';
-        vmNotify.message = '邮箱必须完成!';
-
-        vmNotify.type = ['success', 'warning', 'error', 'info'][Math.floor(Math.random()*4)];
-        vmNotify.visible = true;
-
+        let type = ['success', 'warn', 'error', 'info', 'alert'][Math.floor(Math.random()*5)];
+        NotificationFactory[type]('hello');
+      },
+       notCloseNotification() {
+        NotificationFactory.alert('我不会关闭哟', {
+          duration: 0
+        });
       }
     },
     components: {}
   }
 </script>
 
-## Options
+### Notification Factory Facade
+| 方法       | 说明   |
+|------------|---------|
+| alert(message, options) | -- |
+| success(message, options) | -- |
+| warn(message, options) | -- |
+| info(message, options) | -- |
+| error(message, options) | -- |
+
+
+### Options
+
 | 参数       | 说明                    | 类型       | 可选值                        | 默认值  |
 | -------- | --------------------- | -------- | -------------------------- | ---- |
 | title    | 标题                    | string   | —                          | —    |

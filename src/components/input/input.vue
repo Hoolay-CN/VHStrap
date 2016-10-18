@@ -1,6 +1,7 @@
 <template>
   <template v-if="type !== 'textarea'">
     <input class="form-control"
+      :class="_classes"
       :type="type"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -9,14 +10,13 @@
       :maxlength="maxlength"
       :minlength="minlength"
       :autocomplete="autoComplete"
-      :style="styles"
       @focus="onFocus(localValue, this)"
       @blur="handleBlur"
       v-model="localValue"
     />
   </template>
   <!-- textarea -->
-  <textarea v-else :name="name" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" @focus="onFocus(localValue, this)" @blur="handleBlur" :style="styles" class="form-control" v-model="localValue"></textarea>
+  <textarea v-else :name="name" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" @focus="onFocus(localValue, this)" @blur="handleBlur" class="form-control" :class="_classes" v-model="localValue"></textarea>
 </template>
 
 <script type="text/babel">
@@ -37,16 +37,12 @@
       },
       size: {
         type: String,
-        default: ''
+        default: '' // `lg` ，`sm`
       },
       readonly: {
         type: Boolean,
         default: false
       },
-//      icon: {
-//        type: String,
-//        default: ''
-//      },
       disabled: {
         type: Boolean,
         default: false
@@ -59,7 +55,6 @@
         type: String,
         default: 'off'
       },
-      styles: [Object, Array],
       maxlength: Number,
       minlength: Number,
       onChange: Function,
@@ -90,12 +85,22 @@
       }
     },
 
+    computed: {
+      _classes() {
+        let _classes = {};
+
+        this.size !== '' && (_classes['form-control-' + this.size] = true);
+
+        return _classes;
+      }
+    },
+
     watch: {
       value: {
         immediate: true,
         handler(val) {
           this.localValue = val;
-        },
+        }
       },
       'localValue'(val) {
         // @Todo Update Proxy value

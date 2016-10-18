@@ -13,7 +13,7 @@ cooking.set({
   clean: true,
   hash: true,
   sourceMap: true,
-  publicPath: '/',
+  publicPath: '/demos/vhstrap/',
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: '[name].[contenthash:7].css',

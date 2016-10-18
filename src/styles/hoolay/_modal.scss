@@ -5,10 +5,22 @@
     .modal-content {
       border-radius: 2px;
     }
-    .modal-title, .modal-header .close {
-      font-size: ($font-size-base * 1.25);
+    .modal-header {
+      position: relative;
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: ($font-size-base * 1.75);
+      }
+      .modal-title {
+        font-size: ($font-size-base * 1);
+        margin: 0;
+        font-weight: 500;
+      }
     }
     .modal-footer {
+      border-top: none;
       padding: 15px;
     }
 

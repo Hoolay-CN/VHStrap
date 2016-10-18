@@ -5759,9 +5759,19 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   background-color: rgba(0, 0, 0, 0.5); }
   .vh-modal .modal-content {
     border-radius: 2px; }
-  .vh-modal .modal-title, .vh-modal .modal-header .close {
-    font-size: 1.25rem; }
+  .vh-modal .modal-header {
+    position: relative; }
+    .vh-modal .modal-header .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.75rem; }
+    .vh-modal .modal-header .modal-title {
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 500; }
   .vh-modal .modal-footer {
+    border-top: none;
     padding: 15px; }
   .vh-modal.fade {
     transition: all 0.3s ease; }
@@ -5962,10 +5972,10 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
     line-height: 1em; }
   .vh-notification__closeBtn {
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 12px;
+    top: 4px;
     cursor: pointer;
-    font-size: 16px !important; }
+    font-size: 28px !important; }
   .vh-notification .icon-right {
     color: #5DB860; }
   .vh-notification .icon-error {

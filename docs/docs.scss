@@ -15,6 +15,23 @@ aside.sidebar {
   background-color: #efefef;
   width: 20%;
   z-index: 99;
+  .logo-link {
+    display: inline-block;
+    position: absolute;
+    bottom: 30px;
+    right: 45%;
+    margin-left: 0;
+    color: #dddddd;
+    text-decoration: none;
+    .iconfont {
+      font-weight: 300;
+      font-size: 28px;
+      transition: color 0.4s;
+      &:hover {
+        color: #0096ff;
+      }
+    }
+  }
   & > .list-group {
     text-align: right;
     .list-group-item {

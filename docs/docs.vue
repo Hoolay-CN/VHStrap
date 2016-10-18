@@ -33,16 +33,22 @@
           <a v-link="{ path: '/checkbox' }">Checkbox</a>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/select' }">Select</a>
+          <a v-link="{ path: '/radio' }">Radio</a>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/radio' }">Radio</a>
+          <a v-link="{ path: '/input' }">Input</a>
+        </li>
+        <li class="list-group-item">
+          <a v-link="{ path: '/select' }">Select</a>
         </li>
         <li class="list-group-item">
           <a v-link="{ path: '/notifications' }">Notification</a>
         </li>
         <li class="list-group-item">
           <a v-link="{ path: '/modal' }">Modal</a>
+        </li>
+        <li class="list-group-item">
+          <a v-link="{ path: '/tooltip' }">Tooltip</a>
         </li>
         <li class="list-group-item">
           <a v-link="{ path: '/badge' }">Badge</a>
@@ -54,12 +60,13 @@
           <span>其他</span>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/preview' }">Preview</a>
-        </li>
-        <li class="list-group-item">
           <a v-link="{ path: '/thanks' }">Thanks</a>
         </li>
       </ul>
+       <!-- HOOLAY.cn -->
+      <a href="http://hoolay.cn" class="logo-link" target="_blank">
+        <vh-icon type="logohoolaysm"></vh-icon>
+      </a>
     </aside>
     <div class="markdown-body">
       <div class="wrap">
@@ -74,6 +81,7 @@
 
 <script>
   import $ from 'jquery';
+  import VhIcon from 'src/components/iconfonts/index.vue';
 
   export default {
     name: 'docs',
@@ -94,6 +102,10 @@
                .add(target)
                .toggleClass('active');
       }
+    },
+
+    components: {
+      VhIcon
     }
   }
 </script>

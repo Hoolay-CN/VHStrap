@@ -1,5 +1,5 @@
 <template>
-  <div class="input-group" :style="styles">
+  <div class="input-group">
     <slot></slot>
   </div>
 </template>
@@ -8,8 +8,6 @@
   export default {
     name: 'VhInputGroup',
 
-    props: {
-      styles: [Object, Array]
-    }
+    props: {}
   }
 </script>

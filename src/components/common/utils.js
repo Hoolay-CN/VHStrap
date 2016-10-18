@@ -23,3 +23,13 @@ export const getScrollBarWidth = () => {
 
   return widthNoScroll - widthWithScroll;
 };
+
+/**
+ * Mix properties into target object.
+ */
+export const mixin = (to, _from) => {
+  for (const key in _from) {
+    to[key] = _from[key];
+  }
+  return to;
+}

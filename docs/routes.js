@@ -45,6 +45,18 @@ router.map({
 		title: 'Checkbox',
 		component: resolve => require(['./pages/checkbox'], resolve)
 	},
+  '/input': {
+		title: 'Input',
+		component: resolve => require(['./pages/input'], resolve)
+	},
+  '/radio': {
+		title: 'Radio',
+		component: resolve => require(['./pages/radio'], resolve)
+	},
+  '/select': {
+		title: 'select',
+		component: resolve => require(['./pages/select'], resolve)
+	},
 	'/form': {
 		title: 'Form',
 		component: resolve => require(['./pages/form'], resolve)
@@ -56,6 +68,14 @@ router.map({
 	'/notifications': {
 		title: 'Notifications',
 		component: resolve => require(['./pages/notifications'], resolve)
+	},
+  '/tooltip': {
+		title: 'Tooltip',
+		component: resolve => require(['./pages/tooltip'], resolve)
+	},
+  '/badge': {
+		title: 'Badge',
+		component: resolve => require(['./pages/badge'], resolve)
 	},
 });
 

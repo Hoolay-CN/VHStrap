@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url('iconfont.eot?t=1476685559128'); /* IE9*/
-  src: url('iconfont.eot?t=1476685559128#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('iconfont.woff?t=1476685559128') format('woff'), /* chrome, firefox */
-  url('iconfont.ttf?t=1476685559128') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('iconfont.svg?t=1476685559128#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('iconfont.eot?t=1476758301167'); /* IE9*/
+  src: url('iconfont.eot?t=1476758301167#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('iconfont.woff?t=1476758301167') format('woff'), /* chrome, firefox */
+  url('iconfont.ttf?t=1476758301167') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('iconfont.svg?t=1476758301167#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -21,6 +21,10 @@
 .icon-info:before { content: "\e60d"; }
 
 .icon-right:before { content: "\e60e"; }
+
+.icon-logohoolayzh:before { content: "\e619"; }
+
+.icon-logohoolaysm:before { content: "\e61a"; }
 
 .icon-jigou:before { content: "\e600"; }
 

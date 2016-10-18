@@ -3,13 +3,14 @@
  */
 
 import Vue from 'vue';
+import { mixin } from '../common/utils';
 let NotificationConstructor = Vue.extend(require('./impl.vue'));
 
 let instance;
 let instances = [];
 let seed = 1;
 
-var Notification = function(options) {
+let Notification = function(options) {
   options = options || {};
   let userOnClose = options.onClose;
   let id = 'notification_' + seed++;
@@ -61,4 +62,53 @@ Notification.close = function(id, userOnClose) {
   }
 };
 
-module.exports = Notification;
+let NotificationFactory = {
+  alert(message, options) {
+    options = options || {};
+    options.message = message;
+    options.title = options.title || '提示';
+
+    return Notification(options);
+  },
+
+  success(message, options) {
+    options = options || {};
+    options.type = 'success';
+    options.message = message;
+    options.title = options.title || '提示';
+
+    return Notification(options);
+  },
+
+  warn(message, options) {
+    options = options || {};
+    options.type = 'warning';
+    options.message = message;
+    options.title = options.title || '提示';
+
+    return Notification(options);
+  },
+
+  error(message, options) {
+    options = options || {};
+    options.type = 'error';
+    options.message = message;
+    options.title = options.title || '提示';
+
+    return Notification(options);
+  },
+
+  info(message, options) {
+    options = options || {};
+    options.type = 'info';
+    options.message = message;
+    options.title = options.title || '提示';
+
+    return Notification(options);
+  }
+}
+
+export {
+  NotificationFactory as default,
+  Notification
+}
