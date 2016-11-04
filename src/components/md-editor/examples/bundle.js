@@ -27478,9 +27478,6 @@ var _main4 = _interopRequireDefault(_main3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/**
- * Created by charlie on 9/27/16.
- */
 _vue2.default.config.debug = true;
 _vue2.default.config.devtools = true;
 
@@ -27492,7 +27489,7 @@ var app = new _vue2.default({
 		return {
 			settings: {
 				inlineUploaderSettings: {
-					uploadUrl: 'http://ued.hoolay.cn/cgi-bin/uploader.php'
+					uploadUrl: 'http://stage-h2.hoolay.cn/api/user/x-upload-image'
 				}
 			},
 			body: _main4.default

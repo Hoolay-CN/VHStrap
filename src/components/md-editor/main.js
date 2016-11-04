@@ -17,7 +17,7 @@ let app = new Vue({
 		return {
 			settings: {
 				inlineUploaderSettings: {
-					uploadUrl: 'http://ued.hoolay.cn/cgi-bin/uploader.php'
+					uploadUrl: 'http://stage-h2.hoolay.cn/api/user/x-upload-image'
 				}
 			},
 			body: welcomeBody

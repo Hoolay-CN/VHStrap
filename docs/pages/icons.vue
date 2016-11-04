@@ -141,6 +141,41 @@
       <div class="name">ic_edit_location</div>
       <div class="fontclass">iceditlocation</div>
   </li>
+  <li>
+    <i class="icon iconfont icon-notificationsnone"></i>
+      <div class="name">notificationsnone</div>
+      <div class="fontclass">notificationsnone</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-ic_allwork"></i>
+      <div class="name">ic_allwork</div>
+      <div class="fontclass">ic_allwork</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-ic_soldwork"></i>
+      <div class="name">ic_soldwork</div>
+      <div class="fontclass">ic_soldwork</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-ic_order"></i>
+      <div class="name">ic_order</div>
+      <div class="fontclass">ic_order</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-edit"></i>
+      <div class="name">edit</div>
+      <div class="fontclass">edit</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-delete"></i>
+      <div class="name">delete</div>
+      <div class="fontclass">delete</div>
+  </li>
+  <li>
+    <i class="icon iconfont icon-portrait"></i>
+      <div class="name">portrait</div>
+      <div class="fontclass">portrait</div>
+  </li>
 </ul>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">vh-icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"loading"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-icon</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">vh-icon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"favorite"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-icon</span>&gt;</span>
