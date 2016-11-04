@@ -75,7 +75,7 @@
        */
       callAction: function(command, ...args) {
         try {
-          this.$options.mINSTANCE[command].apply(this.$options.mINSTANCE, args);
+          return this.$options.mINSTANCE[command].apply(this.$options.mINSTANCE, args);
         } catch (e) {
           console.warn('Call Editor Error', e);
         }
