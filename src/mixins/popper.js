@@ -1,4 +1,4 @@
-import PopperJS from 'src/assets/lib/popper';
+import PopperJS from 'vh-src/assets/lib/popper';
 
 /**
  * @link https://popper.js.org/documentation.html

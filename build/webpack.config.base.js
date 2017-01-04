@@ -14,7 +14,7 @@ module.exports = {
     //root: [],
     extensions: ['', '.js', '.vue'],
     alias: {
-      src: rootPath + '/src/'
+      'vh-src': rootPath + '/src/'
     },
     //fallback: [],
   },

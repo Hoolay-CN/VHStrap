@@ -24,7 +24,7 @@
 </template>
 
 <script type="text/babel">
-  import 'src/plugins/v-clickoutsize';
+  import 'vh-src/plugins/v-clickoutsize';
   import VhDropdownMenu from './dd-menu.vue';
 
   export default {
