@@ -1,6 +1,3 @@
-# Developing day and night ... :dog:
-
-
 ### Setup with 
 
 ```bash
