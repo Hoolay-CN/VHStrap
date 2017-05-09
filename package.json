@@ -1,0 +1,77 @@
+{
+  "name": "vue-hoolay-bootstrap",
+  "version": "0.0.1",
+  "description": "vue bootstrap for HOOLAY.cn",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "STAGE=development gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoolay-CN/VHStrap.git"
+  },
+  "keywords": [
+    "vue",
+    "bootstrap",
+    "hoolay"
+  ],
+  "author": "ue@hoolay.cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hoolay-CN/VHStrap/issues"
+  },
+  "homepage": "https://github.com/Hoolay-CN/VHStrap#readme",
+  "dependencies": {
+    "deep-assign": "^2.0.0",
+    "got": "^6.5.0",
+    "styles": "^0.2.1",
+    "vue": "^1.0.26"
+  },
+  "devDependencies": {
+    "async-validator": "^1.6.6",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-stage-2": "^6.13.0",
+    "babel-runtime": "^6.11.6",
+    "cheerio": "^0.22.0",
+    "css-loader": "^0.25.0",
+    "dom-classlist": "^1.0.1",
+    "eslint": "^3.5.0",
+    "eslint-config-airbnb": "^11.1.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-import": "^1.15.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "github-markdown-css": "^2.4.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.22.0",
+    "is_js": "^0.9.0",
+    "json-loader": "^0.5.4",
+    "lodash": "^4.16.1",
+    "markdown-it": "^8.0.0",
+    "node-sass": "^3.10.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "through-gulp": "^0.5.0",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.0",
+    "vue-html-loader": "^1.2.3",
+    "vue-loader": "^8.5.2",
+    "vue-markdown-loader": "^0.5.1",
+    "vue-router": "^0.7.13",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^2.1.0-beta.22",
+    "webpack-dev-server": "^2.1.0-beta.5"
+  }
+}

@@ -1,0 +1,47 @@
+.vh {
+
+  $badge-fill: $brand-danger;
+  $badge-radius: 10px;
+  $badge-font-size: 11px;
+  $badge-padding: 6px;
+  $badge-size: 18px;
+
+  &-badge {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+
+    &__content {
+      background-color: $badge-fill;
+      border-radius: $badge-radius;
+      color: #fff;
+      display: inline-block;
+      font-size: $badge-font-size;
+      height: $badge-size;
+      line-height: $badge-size - 2px;
+      padding: 0 $badge-padding;
+      text-align: center;
+      white-space: nowrap;
+      border: 1px solid #fff;
+
+      &.is-fixed {
+        position: absolute;
+        top: 0;
+        right: $badge-size / 2 + 1;
+        transform: translateY(-50%) translateX(100%);
+
+        &.is-dot {
+          right: 5px;
+        }
+      }
+
+      &.is-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        right: 0;
+        border-radius: 50%;
+      }
+    }
+  }
+}

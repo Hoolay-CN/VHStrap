@@ -1,0 +1,67 @@
+.vh {
+  &-notification {
+    width: 330px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    position: fixed;
+    right: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .04), 0 1px 4px rgba(0, 0, 0, .15);
+    transition: opacity 0.3s, transform .3s, right .3s, top 0.4s;
+    overflow: hidden;
+    z-index: $zindex-notification;
+
+    &__group {
+      & > span {
+        font-size: 16px;
+        color: #1f2d3d;
+      }
+
+      & > p {
+        font-size: 14px;
+        line-height: 21px;
+        margin: 10px 0 0 0;
+        color: #8492a6;
+        text-align: justify;
+      }
+    }
+
+    &__icon {
+      font-size: 32px !important;
+      float: left;
+      position: relative;
+      top: 3px;
+      left: 5px;
+      line-height: 1em;
+    }
+
+    &__closeBtn {
+      position: absolute;
+      right: 12px;
+      top: 4px;
+      cursor: pointer;
+      font-size: 28px !important;
+
+      &:hover {}
+    }
+
+    & .icon-right {
+      color: $success-bg;
+    }
+
+    & .icon-error {
+      color: $error-bg;
+    }
+
+    & .icon-info {
+      color: $info-bg;
+    }
+
+    & .icon-warn {
+      color: $warning-bg;
+    }
+
+  }
+}
+

@@ -1,0 +1,7 @@
+{
+    "extends": "airbnb",
+    "installedESLint": true,
+    "rules": {
+        "indent": ["error", 2]
+    }
+}
