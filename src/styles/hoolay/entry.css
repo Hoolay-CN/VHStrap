@@ -5752,7 +5752,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
   display: inline-block;
   font-size: 0; }
   .vh-form-radio-group .vh-radio {
-    font-size: var(14px); }
+    font-size: 14px; }
 
 .vh-modal {
   display: none;

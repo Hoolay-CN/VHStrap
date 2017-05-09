@@ -26,6 +26,7 @@ cooking.set({
 
 cooking.add('resolve.alias', {
   'src': path.join(__dirname, '..', 'src'),
+  'vh-src': path.join(__dirname, '..', 'src'),
   'vue': path.join(__dirname, '/node_modules/vue/')
 });
 

@@ -4,7 +4,7 @@ import Vue from 'vue';
 import App from './_local/app.vue';
 
 // configs
-Vue.config.devtools = true;
+// Vue.config.devtools = true;
 Vue.config.debug = true;
 window.Vue = Vue;
 
