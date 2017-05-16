@@ -82,7 +82,7 @@
 <h3>Links</h3>
 <p><a href="http://v4-alpha.getbootstrap.com/layout/grid/">http://v4-alpha.getbootstrap.com/layout/grid/</a></p>
 </section></template>
-<style lang="sass">
+<style lang="scss">
   .ex-layout {
     .col-sm-4 {
       background-color: #eeeeee;

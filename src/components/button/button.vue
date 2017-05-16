@@ -44,7 +44,7 @@
   }
 </script>
 
-<style lang="sass">
+<style lang="scss">
   .btn-lg, .btn-group-lg > .btn {
     .iconfont {
       font-size: 1.25rem;

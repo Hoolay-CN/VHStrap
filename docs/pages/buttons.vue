@@ -93,7 +93,7 @@
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
 </section></template>
-<style lang="sass">
+<style lang="scss">
 .ex-btn-container {
   padding: 10px 0;
   .btn {

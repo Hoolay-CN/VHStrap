@@ -63,7 +63,7 @@
 </tbody>
 </table>
 </section></template>
-<style lang="sass">
+<style lang="scss">
   .ex-badge-container {
     .vh-badge {
       margin-right: 40px;

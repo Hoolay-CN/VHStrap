@@ -10,7 +10,7 @@
 </div>
 
 </section></template>
-<style lang="sass">
+<style lang="scss">
   .ex-color-picker {
     .item {
       position: relative;

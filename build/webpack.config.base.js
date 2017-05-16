@@ -34,24 +34,24 @@ module.exports = {
       test: /\.vue$/,
       loader: 'vue'
     },
-    json: {
-      test: /\.json$/,
-      loaders: ['json-loader']
-    },
+    // json: {
+    //  test: /\.json$/,
+    //  loaders: ['json-loader']
+    // },
     // css: {
     //   test: /\.css$/,
     //   loaders: ['style-loader', 'css-loader']
     // },
     sass: {
       test: /\.scss$/,
-      loaders: ["style", "css", "sass"]
+      loaders: ["style-loader", "css-loader", "sass-loader"]
     },
     html: {
       test: /\.html$/,
       loaders: ['html-loader?minimize=false']
     },
     font: {
-			test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+      test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
       loader: 'file-loader',
     },
     image: {
