@@ -12,7 +12,7 @@
     props: {
       span: {
         type: Number, // 24 span grid
-        default: 1
+        'default': 1
       },
       offset: Number, // left offset span * n
       push: Number,

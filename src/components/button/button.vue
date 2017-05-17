@@ -24,15 +24,15 @@
       },
       type: {
         type: String,
-        default: 'default',
+        'default': 'default',
       },
       size: {
         type: String, // `sm` , `lg`
-        default: 'md'
+        'default': 'md'
       },
       icon: {
         type: String,
-        default: ''
+        'default': ''
       },
       disabled: Boolean,
       block: Boolean

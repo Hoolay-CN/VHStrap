@@ -14,7 +14,7 @@
             <button type="button" class="close" @click="close"><span>&times;</span></button>
             <h4 class="modal-title">
               <slot name="title">
-                {{title}}
+                {{ title }}
               </slot>
             </h4>
           </div>
@@ -24,8 +24,8 @@
           </div>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="_cancel">{{ cancelText }}</button>
-            <button type="button" class="btn btn-hoolay" @click="_ok">{{ okText }}</button>
+            <button type="button" class="btn btn-default" @click="internalCancel">{{ cancelText }}</button>
+            <button type="button" class="btn btn-hoolay" @click="internalOk">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -43,49 +43,55 @@
     props: {
       okText: {
         type: String,
-        default: '确定'
+        'default': '确定'
       },
       cancelText: {
         type: String,
-        default: '取消'
+        'default': '取消'
       },
       title: {
         type: String,
-        default: ''
+        'default': ''
       },
       show: {
         required: true,
-        type: Boolean,
-        twoWay: true
+        type: Boolean
       },
       width: {
-        default: null
+        'default': null
       },
       onOk: {
         type: Function,
-        default () {}
+        'default' () {}
       },
       onCancel: {
         type: Function,
-        default () {}
+        'default' () {}
       },
       effect: {
         type: String,
-        default: 'fade'
+        'default': 'fade'
       },
       backdrop: {
         type: Boolean,
-        default: true
+        'default': true
       },
       large: {
         type: Boolean,
-        default: false
+        'default': false
       },
       small: {
         type: Boolean,
-        default: false
+        'default': false
       }
     },
+
+    data() {
+      return {
+        internalShow: this.show
+      }
+    },
+
     computed: {
       optionalWidth () {
         if (this.width === null) {
@@ -97,7 +103,13 @@
       }
     },
     watch: {
-      show (val) {
+      show(val) {
+        // just flow down
+        this.internalShow = val
+      },
+
+      internalShow (val) {
+
         const el = this.$el;
         const body = document.body;
         const scrollBarWidth = getScrollBarWidth();
@@ -128,26 +140,34 @@
             el.style.display = 'none';
           }, false);
         }
-
       }
     },
     methods: {
       close () {
-        this.show = false;
+        this.internalShow = false
+
+        this.$emit('close')
       },
       open () {
-        this.show = true;
-      },
-      _cancel(e) {
-        typeof this.onCancel === 'function' && this.onCancel(e, this);
+        this.internalShow = true
 
-        this.close();
+        this.$emit('open')
       },
-      _ok(e) {
-        let ok = null;
-        typeof this.onOk === 'function' && (ok = this.onOk(e, this));
+      internalCancel(e) {
+        typeof this.onCancel === 'function' && this.onCancel(e, this)
 
-        ok !== false && this.close();
+        this.close()
+
+        return this.internalShow
+      },
+      internalOk(e) {
+        let ok = null
+
+        typeof this.onOk === 'function' && (ok = this.onOk(e, this))
+
+        ok !== false && this.close()
+
+        return this.internalShow
       }
     }
   };

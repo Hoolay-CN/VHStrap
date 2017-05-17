@@ -1,6 +1,6 @@
 <template lang="html">
   <div v-if="visible"
-       class="alert alert-{{ type }}">
+       :class="'alert alert-' + type">
     <button type="button"
             class="close"
             @click="visible = false">
@@ -18,11 +18,11 @@
     props: {
       visible: {
         type: Boolean,
-        default: true
+        'default': true
       },
       type: {
         type: String,
-        default: 'info'
+        'default': 'info'
       }
     }
   };

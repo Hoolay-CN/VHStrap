@@ -1,37 +1,38 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // gulp tasks
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var path = require('path');
-var webpack = require('webpack');
-var gutil = require("gulp-util");
-var WebpackDevServer = require('webpack-dev-server');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const path = require('path');
+const webpack = require('webpack');
+const gUtil = require('gulp-util');
+const WebpackDevServer = require('webpack-dev-server');
 
-var webpackBuild = require('./build/webpack.factory');
+const webpackBuild = require('./build/webpack.factory');
 
-var rootPath = path.resolve('.');
+const rootPath = path.resolve('.');
 
-gulp.task('build-hoolay-style', [], function() {
-  var basePath = rootPath + '/src/styles/hoolay';
-  gulp.src(basePath + '/entry.scss')
+gulp.task('build-hoolay-style', [], () => {
+  const basePath = `${rootPath}/src/styles/hoolay`;
+  gulp.src(`${basePath}/entry.scss`)
   .pipe(sass().on('error', sass.logError))
   .pipe(gulp.dest(basePath));
 });
 
 // watch styles
-gulp.task('watch-hoolay-style', [], function() {
-  var watcher = gulp.watch(rootPath + '/src/styles/hoolay/**/*.scss', ['build-hoolay-style']);
+gulp.task('watch-hoolay-style', [], () => {
+  const watcher = gulp.watch(`${rootPath}/src/styles/hoolay/**/*.scss`, ['build-hoolay-style']);
 
-  watcher.on('change', function(event) {
-    console.log('File ' + event.path + ' was ' + event.type);
+  watcher.on('change', (event) => {
+    console.log(`File ${event.path} was ${event.type}`);
   });
 });
 
 // webpack - x
-gulp.task('dev', ['watch-hoolay-style'], function(callback) {
-  var configs = webpackBuild.Factory.withDevelopment({});
-  var compiler = webpack(configs, function(err, stats) {
-    if (err) throw new gutil.PluginError("webpack", err);
-    gutil.log("[webpack]", stats.toString({}));
+gulp.task('dev', ['watch-hoolay-style'], (callback) => {
+  const configs = webpackBuild.Factory.withDevelopment({});
+  const compiler = webpack(configs, (err, stats) => {
+    if (err) throw new gUtil.PluginError('webpack', err);
+    gUtil.log('[webpack]', stats.toString());
     callback();
   });
 
@@ -39,12 +40,12 @@ gulp.task('dev', ['watch-hoolay-style'], function(callback) {
   new WebpackDevServer(compiler, {
     publicPath: configs.output.publicPath,
     stats: {
-      colors: true
-    }
-  }).listen(8888, "localhost", function(err) {
-    if(err) throw new gutil.PluginError("webpack-dev-server", err);
+      colors: true,
+    },
+  }).listen(8888, 'localhost', (err) => {
+    if (err) throw new gUtil.PluginError('webpack-dev-server', err);
     // Server listening
-    gutil.log("[webpack-dev-server]", "http://localhost:8888/webpack-dev-server/index.html");
+    gUtil.log('[webpack-dev-server]', 'http://localhost:8888/webpack-dev-server/index.html');
     // callback();
   });
 });

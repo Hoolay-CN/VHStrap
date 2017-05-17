@@ -6,9 +6,14 @@
 
 <script>
   import consts from '../common/constants';
+  import emitter from '../../mixins/emitter';
 
   export default {
     name: 'VhCheckboxGroup',
+
+    componentName: 'VhCheckboxGroup', // used for `dispatch`
+
+    mixins: [ emitter ],
 
     props: {
       value: {}
@@ -18,7 +23,8 @@
       value(value) {
         // @Todo `event` change will be do twice (eg: `custom`, `native`)
         this.$emit('change', value);
-        this.$dispatch(consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, value);
+
+        this.dispatch(this.$options.componentName, consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, value);
       }
     }
   };

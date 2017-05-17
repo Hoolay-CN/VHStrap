@@ -4,12 +4,12 @@
     <sup
         v-text="content"
         class="vh-badge__content"
-        :class="{ 'is-fixed': $el.children.length > 1, 'is-dot': isDot }">
+        :class="{ 'is-fixed': $slots.default, 'is-dot': isDot }">
     </sup>
   </div>
 </template>
 
-<script>
+<script type="text/babel">
   export default {
     name: 'VhBadge',
 

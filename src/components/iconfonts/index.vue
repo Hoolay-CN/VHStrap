@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont icon-{{ type }}"></i>
+  <i :class="'iconfont icon-' +  type"></i>
 </template>
 
 <script type="text/babel">
