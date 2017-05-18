@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import VhIcon from '../iconfonts/index.vue';
+  import { VhIcon } from '../iconfonts';
 
   export default {
     name: 'VhButton',

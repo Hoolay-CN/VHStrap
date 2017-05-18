@@ -1,6 +1,6 @@
 function broadcast (componentName, eventName, params) {
   this.$children.forEach(child => {
-    let name = child.$options.componentName
+    let name = child.$options.name
 
     if (name === componentName) {
       child.$emit.apply(child, [eventName].concat(params))
@@ -14,17 +14,17 @@ export default {
   methods: {
     dispatch (componentName, eventName, params) {
       let parent = this.$parent || this.$root
-      let name = parent.$options.componentName
+      let name = parent.$options.name
 
       while (parent && (!name || name !== componentName)) {
-        // capture if componentName not defined
-        // or current component's Name is not equal to propagating component's Name
+        // propagate if componentName not defined
         parent = parent.$parent
 
         if (parent) {
-          name = parent.$options.componentName
+          name = parent.$options.name
         }
       }
+
       if (parent) {
         parent.$emit.apply(parent, [eventName].concat(params))
       }

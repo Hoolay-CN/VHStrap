@@ -34,8 +34,8 @@
 </template>
 
 <script type="text/babel">
-  import classList from 'dom-classlist';
-  import { getScrollBarWidth } from '../common/utils.js'
+  import classList from 'dom-classlist'
+  import { getScrollBarWidth } from '../common/utils'
 
   export default {
     name: 'VhModal',
@@ -110,48 +110,60 @@
 
       internalShow (val) {
 
-        const el = this.$el;
-        const body = document.body;
-        const scrollBarWidth = getScrollBarWidth();
+      	const vm = this
+        const el = this.$el
+        const body = document.body
+        const scrollBarWidth = getScrollBarWidth()
 
         if (val) {
-          el.querySelector('.modal-content').focus();
+          el.querySelector('.modal-content').focus()
 
-          el.style.display = 'block';
-
-          setTimeout(() => classList(el).add('in'), 0);
-
-          classList(body).add('modal-open');
+          el.style.display = 'block'
 
           if (scrollBarWidth !== 0) {
-            body.style.paddingRight = scrollBarWidth + 'px';
+            body.style.paddingRight = scrollBarWidth + 'px'
           }
+
+          classList(body).add('modal-open')
+
+          setTimeout(() => {
+          	classList(el).add('in')
+          }, 0)
+
+          // async
+          el.addEventListener('transitionend', function endFn() {
+            el.removeEventListener('transitionend', endFn)
+
+	        vm.$emit('openTransitionEnd')
+          }, false)
 
           // @Todo
           // if (this.backdrop) {}
+          this.$emit('open')
         } else {
-          body.style.paddingRight = null;
-
-          classList(body).remove('modal-open');
-          classList(el).remove('in');
+          body.style.paddingRight = null
 
           el.addEventListener('transitionend', function endFn() {
-            el.removeEventListener('transitionend', endFn);
-            el.style.display = 'none';
-          }, false);
+            el.removeEventListener('transitionend', endFn)
+
+            classList(body).remove('modal-open')
+            el.style.display = 'none'
+
+            vm.$emit('closeTransitionEnd')
+          }, false)
+
+          classList(el).remove('in')
+
+          this.$emit('close')
         }
       }
     },
     methods: {
       close () {
         this.internalShow = false
-
-        this.$emit('close')
       },
       open () {
         this.internalShow = true
-
-        this.$emit('open')
       },
       internalCancel(e) {
         typeof this.onCancel === 'function' && this.onCancel(e, this)
@@ -170,5 +182,5 @@
         return this.internalShow
       }
     }
-  };
+  }
 </script>

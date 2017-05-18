@@ -5,10 +5,10 @@ import Vue from 'vue'
 import VhModal from './modal.vue'
 import VhModalAlert from './alert.vue'
 
-let VhModalFn = Vue.extend(VhModal)
+// let VhModalFn = Vue.extend(VhModal)
 let VhAlertFn = Vue.extend(VhModalAlert)
 
-let _mixins = {}
+// let _mixins = {}
 
 let Factory = {
   /**

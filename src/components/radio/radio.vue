@@ -22,7 +22,8 @@
     </span>
   </label>
 </template>
-<script>
+
+<script type="text/babel">
   export default {
     name: 'VhRadio',
 
@@ -35,26 +36,28 @@
       disabled: Boolean,
       name: String
     },
+
     data() {
       return {
         focus: false
       };
     },
+
     computed: {
       _value: {
         get() {
-          return this.value !== undefined ? this.value : this.$parent.value;
+          return this.value !== void 0 ? this.value : this.$parent.value
         },
         set(newValue) {
-          if (this.value !== undefined) {
+          if (this.value !== void 0) {
             // @Todo Single is Simple
-            this.value = newValue;
-            this.$emit('input', newValue);
+            this.value = newValue
+            this.$emit('input', newValue)
           } else {
-            this.$parent.$emit('input', newValue);
+            this.$parent.$emit('input', newValue)
           }
         }
       }
     }
-  };
+  }
 </script>

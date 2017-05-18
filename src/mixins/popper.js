@@ -1,4 +1,4 @@
-import PopperJS from 'vh-src/assets/lib/popper';
+import PopperJS from 'vh-src/assets/lib/popper'
 
 /**
  * @link https://popper.js.org/documentation.html
@@ -29,125 +29,125 @@ module.exports = {
     transition: String,
     options: {
       type: Object,
-      default() {
-        return {};
+      default () {
+        return {}
       }
     }
   },
 
-  data() {
+  data () {
     return {
       showPopper: false
-    };
+    }
   },
 
   watch: {
     value: {
       immediate: true,
-      handler(val) {
-        this.showPopper = val;
-        this.$emit('input', val);
+      handler (val) {
+        this.showPopper = val
+        this.$emit('input', val)
       }
     },
 
-    showPopper(val) {
-      val ? this.updatePopper() : this.destroyPopper();
-      this.$emit('input', val);
+    showPopper (val) {
+      val ? this.updatePopper() : this.destroyPopper()
+      this.$emit('input', val)
     }
   },
 
   methods: {
-    createPopper() {
+    createPopper () {
       if (!/^(top|bottom|left|right)(-start|-end)?$/g.test(this.placement)) {
-        return;
+        return
       }
 
-      const options = this.options;
-      const popper = this.popper || this.$els.popper;
+      const options = this.options
+      const popper = this.popper || this.$refs.popper
 
-      const reference = this.reference || this.$els.reference;
+      const reference = this.reference || this.$refs.reference
 
-      if (!popper || !reference) return;
+      if (!popper || !reference) return
       if (this.visibleArrow) {
-        this.appendArrow(popper);
+        this.appendArrow(popper)
       }
 
       if (this.popperJS && this.popperJS.hasOwnProperty('destroy')) {
-        this.popperJS.destroy();
+        this.popperJS.destroy()
       }
 
-      options.placement = this.placement;
-      options.offset = this.offset;
+      options.placement = this.placement
+      options.offset = this.offset
 
       this.$nextTick(() => {
         this.popperJS = new PopperJS(
           reference,
           popper,
           options
-        );
+        )
         this.popperJS.onCreate(popper => {
-          this.resetTransformOrigin(popper);
-          this.$emit('created', this);
-        });
-      });
+          this.resetTransformOrigin(popper)
+          this.$emit('created', this)
+        })
+      })
     },
 
-    updatePopper() {
+    updatePopper () {
       if (this.popperJS) {
-        this.popperJS.update();
+        this.popperJS.update()
       } else {
-        this.createPopper();
+        this.createPopper()
       }
     },
 
-    doDestroy() {
-      if (this.showPopper) return;
-      this.popperJS.destroy();
-      this.popperJS = null;
+    doDestroy () {
+      if (this.showPopper) return
+      this.popperJS.destroy()
+      this.popperJS = null
     },
 
-    destroyPopper() {
+    destroyPopper () {
       if (this.popperJS) {
-        this.resetTransformOrigin(this.popperJS);
+        this.resetTransformOrigin(this.popperJS)
       }
     },
 
-    resetTransformOrigin(popper) {
-      let placementMap = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' };
-      let placement = popper._popper.getAttribute('x-placement').split('-')[0];
-      let origin = placementMap[placement];
-      popper._popper.style.transformOrigin = ['top', 'bottom'].indexOf(placement) > -1 ? `center ${ origin }` : `${ origin } center`;
+    resetTransformOrigin (popper) {
+      let placementMap = { top: 'bottom', bottom: 'top', left: 'right', right: 'left' }
+      let placement = popper._popper.getAttribute('x-placement').split('-')[0]
+      let origin = placementMap[placement]
+      popper._popper.style.transformOrigin = ['top', 'bottom'].indexOf(placement) > -1 ? `center ${origin}` : `${origin} center`
     },
 
-    appendArrow(element) {
-      let hash;
+    appendArrow (element) {
+      let hash
       if (this.appended) {
-        return;
+        return
       }
 
-      this.appended = true;
+      this.appended = true
 
       for (let item in element.attributes) {
         if (/^_v-/.test(element.attributes[item].name)) {
-          hash = element.attributes[item].name;
-          break;
+          hash = element.attributes[item].name
+          break
         }
       }
 
-      const arrow = document.createElement('div');
+      const arrow = document.createElement('div')
 
       if (hash) {
-        arrow.setAttribute(hash, '');
+        arrow.setAttribute(hash, '')
       }
-      arrow.setAttribute('x-arrow', '');
-      arrow.className = 'popper__arrow';
-      element.appendChild(arrow);
+      arrow.setAttribute('x-arrow', '')
+      arrow.className = 'popper__arrow'
+      element.appendChild(arrow)
     }
   },
 
-  beforeDestroy() {
+  beforeDestroy () {
     if (this.popperJS) {
-      this.popperJS.destroy();
+      this.popperJS.destroy()
     }
   }
-};
+}

@@ -233,7 +233,7 @@
           content: {required: true, message: '必须填写哟'},
           people(rule, value, callback, source, options) {
             console.log(rule);
-            var errors = [];
+            let errors = [];
             if(!Array.isArray(value) || value.length < 2) {
               errors.push(new Error('请选择至少两个吧'));
             }

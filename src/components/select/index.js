@@ -1,5 +1,5 @@
-import VhSelect from './select.vue';
+import VhSelect from './select.vue'
 
 module.exports = {
   VhSelect
-};
+}
