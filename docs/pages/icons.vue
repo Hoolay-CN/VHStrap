@@ -220,5 +220,5 @@
 }
 </style>
 <script>
-  import VhIcon from 'src/components/iconfonts/index.vue';
+  import VhIcon from 'src/components/iconfonts/impl.vue';
 </script>

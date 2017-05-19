@@ -71,7 +71,7 @@
   }
 </style>
 <script>
-  import VhBadge from 'src/components/badge/index.vue';
+  import { VhBadge } from 'src/components/badge';
   import { VhButton, VhButtonGroup } from 'src/components/button/index';
 
   export default {

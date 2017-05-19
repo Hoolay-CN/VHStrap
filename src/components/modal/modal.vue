@@ -134,7 +134,7 @@
           el.addEventListener('transitionend', function endFn() {
             el.removeEventListener('transitionend', endFn)
 
-	        vm.$emit('openTransitionEnd')
+	        vm.$emit('open-transition-end')
           }, false)
 
           // @Todo
@@ -149,13 +149,16 @@
             classList(body).remove('modal-open')
             el.style.display = 'none'
 
-            vm.$emit('closeTransitionEnd')
+            vm.$emit('close-transition-end')
           }, false)
 
           classList(el).remove('in')
 
           this.$emit('close')
         }
+
+        // explicitly emit an event instead of mutating the prop .sync
+        this.$emit('update:show', val)
       }
     },
     methods: {

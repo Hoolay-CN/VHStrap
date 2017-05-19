@@ -42,7 +42,7 @@
     </vh-col>
   </vh-row>
   <vh-row>
-    <vh-col v-for="n in cols">
+    <vh-col v-for="(n, index) in cols" :key="index">
       <h6 style="text-align: center; padding: 70px 0; background-color:  #eeeeee;">{{ n }}</h6>
     </vh-col>
   </vh-row>

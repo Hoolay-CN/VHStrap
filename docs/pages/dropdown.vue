@@ -3,7 +3,7 @@
 <div class="ex-dd-container" style="padding-bottom: 20px;">
   <vh-dropdown :up="false" type="outline-hoolay" label="Checkout Repo">
     <dd-item type="header">Header</dd-item>
-    <dd-item @select="onItemSelect" tag="Charles label">
+    <dd-item tag="Charles label">
       <i class="iconfont icon-yishujia"></i>
       Charles
     </dd-item>
@@ -187,9 +187,10 @@
 </table>
 </section></template>
 
-<script>
-  import VhIcon from 'src/components/iconfonts/index.vue';
+<script type="text/babel">
+  import VhIcon from 'src/components/iconfonts/impl.vue';
   import { VhDropdown, VhDropdownItem as DdItem } from 'src/components/dropdown/index';
+
   export default {
     components:{
       VhDropdown, DdItem

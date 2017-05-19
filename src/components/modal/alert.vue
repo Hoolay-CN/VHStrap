@@ -4,7 +4,7 @@
               :show="visible"
               :on-ok="onConfirm"
               :on-cancel="onCancel"
-              @closeTransitionEnd="suicide"
+              @close-transition-end="suicide"
               v-if="!byebye"
               ref="modal"
     >
