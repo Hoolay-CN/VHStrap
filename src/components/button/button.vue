@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import VhIcon from '../iconfonts/index.vue';
+  import { VhIcon } from '../iconfonts';
 
   export default {
     name: 'VhButton',
@@ -24,15 +24,15 @@
       },
       type: {
         type: String,
-        default: 'default',
+        'default': 'default',
       },
       size: {
         type: String, // `sm` , `lg`
-        default: 'md'
+        'default': 'md'
       },
       icon: {
         type: String,
-        default: ''
+        'default': ''
       },
       disabled: Boolean,
       block: Boolean
@@ -44,7 +44,7 @@
   }
 </script>
 
-<style lang="sass">
+<style lang="scss">
   .btn-lg, .btn-group-lg > .btn {
     .iconfont {
       font-size: 1.25rem;

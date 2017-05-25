@@ -1,83 +1,95 @@
 <template>
-  <template v-if="type !== 'textarea'">
     <input class="form-control"
+       v-if="type !== 'textarea'"
       :class="_classes"
-      :type="type"
+      type="text"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
-      :number="number"
-      :maxlength="maxlength"
-      :minlength="minlength"
+      :maxlength="maxLength"
+      :minlength="minLength"
       :autocomplete="autoComplete"
       @focus="onFocus(localValue, this)"
       @blur="handleBlur"
       v-model="localValue"
     />
-  </template>
-  <!-- textarea -->
-  <textarea v-else :name="name" :placeholder="placeholder" :disabled="disabled" :readonly="readonly" @focus="onFocus(localValue, this)" @blur="handleBlur" class="form-control" :class="_classes" v-model="localValue"></textarea>
+
+    <!-- textarea -->
+    <textarea
+        v-else
+        :name="name"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :readonly="readonly"
+        @focus="onFocus(localValue, this)"
+        @blur="handleBlur"
+        class="form-control"
+        :class="_classes"
+        v-model="localValue"></textarea>
 </template>
 
 <script type="text/babel">
-  import consts from '../common/constants';
+  import consts from '../common/constants'
+  import emitter from '../../mixins/emitter'
 
   export default {
     name: 'VhInput',
+
+    mixins: [ emitter ],
 
     props: {
       value: [String, Number],
       type: {
         type: String,
-        default: 'text'
+        'default': 'text'
       },
       placeholder: {
         type: String,
-        default: ''
+        'default': ''
       },
       size: {
         type: String,
-        default: '' // `lg` ，`sm`
+        'default': '' // `lg` ，`sm`
       },
       readonly: {
         type: Boolean,
-        default: false
+        'default': false
       },
       disabled: {
         type: Boolean,
-        default: false
+        'default': false
       },
       name: {
         type: String,
-        default: ''
+        'default': ''
       },
       autoComplete: {
         type: String,
-        default: 'off'
+        'default': 'off'
       },
-      maxlength: Number,
-      minlength: Number,
+      maxLength: Number,
+      minLength: Number,
       onChange: Function,
       onBlur: Function,
       onFocus: {
         type: Function,
-        default: () => {}
+        'default': () => {}
       }
     },
 
     data() {
       return {
-        localValue: ''
-      };
+        localValue: this.value
+      }
     },
 
     methods: {
       handleBlur(e) {
 
-        typeof this.onBlur=== 'function' && this.onBlur(this.localValue, this);
+        typeof this.onBlur=== 'function' && this.onBlur(this.localValue, this)
 
         // Notify Form item for validating field
-        this.$dispatch(consts.NS_EVENT_FORM_ITEM_XNATIVE_BLUR, this.localValue);
+        this.dispatch('VhFormItem', consts.NS_EVENT_FORM_ITEM_XNATIVE_BLUR, this.localValue)
       },
 
       selectInput() {
@@ -87,28 +99,21 @@
 
     computed: {
       _classes() {
-        let _classes = {};
+        let _classes = {}
 
-        this.size !== '' && (_classes['form-control-' + this.size] = true);
+        this.size !== '' && (_classes['form-control-' + this.size] = true)
 
         return _classes;
       }
     },
 
     watch: {
-      value: {
-        immediate: true,
-        handler(val) {
-          this.localValue = val;
-        }
-      },
       'localValue'(val) {
-        // @Todo Update Proxy value
-        this.value = val;
+        this.$emit('input', val)
 
-        typeof this.onChange === 'function' && this.onChange(val, this);
-        this.$dispatch(consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, val);
+        typeof this.onChange === 'function' && this.onChange(val, this)
+        this.dispatch('VhFormItem', consts.NS_EVENT_FORM_ITEM_XNATIVE_CHANGE, val)
       }
     }
-  };
+  }
 </script>

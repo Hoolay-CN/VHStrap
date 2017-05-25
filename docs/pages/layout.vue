@@ -42,7 +42,7 @@
     </vh-col>
   </vh-row>
   <vh-row>
-    <vh-col v-for="n in cols">
+    <vh-col v-for="(n, index) in cols" :key="index">
       <h6 style="text-align: center; padding: 70px 0; background-color:  #eeeeee;">{{ n }}</h6>
     </vh-col>
   </vh-row>
@@ -82,7 +82,7 @@
 <h3>Links</h3>
 <p><a href="http://v4-alpha.getbootstrap.com/layout/grid/">http://v4-alpha.getbootstrap.com/layout/grid/</a></p>
 </section></template>
-<style lang="sass">
+<style lang="scss">
   .ex-layout {
     .col-sm-4 {
       background-color: #eeeeee;

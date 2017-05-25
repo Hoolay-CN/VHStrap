@@ -57,30 +57,30 @@
     },
 
     computed: {
-      _value: { // Proxy Value
+      _value: { // proxy value
         get() {
-          return this.value !== undefined ? this.value : this.$parent.value;
+          return this.value !== void 0 ? this.value : this.$parent.value // get value from parent group
         },
         set(newValue) {
-          if (this.value !== undefined) {
+          if (this.value !== void 0) {
 
             // @Todo Handle multiple Value Types . 暂时不支持对应数组多选，可以手动name + slot-content处理
-            is.boolean(this.value) && (this.value = newValue);
+            is.boolean(this.value) && (this.value = newValue)
 
-            this.$emit('input', newValue);
+            this.$emit('input', newValue)
 
           } else {
-            this.$parent.$emit('input', newValue);
+            this.$parent.$emit('input', newValue)
           }
         }
       },
       checked() {
         if (is.boolean(this._value)) {
-          return this._value;
+          return this._value
         } else if (is.array(this._value)) {
-           return !!~this._value.indexOf(this.label);
+           return !!~this._value.indexOf(this.label)
         } else if ( is.string(this._value) || is.number(this._value)) {
-          return this._value === this.trueLabel;
+          return this._value === this.trueLabel
         }
       }
     },

@@ -1,61 +1,63 @@
 /**
  * Created by charlie on 10/11/16.
  */
-import Vue from 'vue';
-import VhModal from './modal.vue';
-import VhModalAlert from './alert.vue';
+import Vue from 'vue'
+import VhModal from './modal.vue'
+import VhModalAlert from './alert.vue'
 
-let VhModalFn = Vue.extend(VhModal);
-let VhAlertFn = Vue.extend(VhModalAlert);
+// let VhModalFn = Vue.extend(VhModal)
+let VhAlertFn = Vue.extend(VhModalAlert)
 
-let _mixins = {};
+// let _mixins = {}
 
 let Factory = {
   /**
    * @param msg
    * @param callback
    */
-  confirm(msg, callback = () => {}) {
+  confirm (msg, callback = () => {}) {
     let options = {
       message: msg,
       onConfirm: () => callback(true),
       onCancel: () => callback(false)
-    };
+    }
 
     let vmodel = new VhAlertFn({
       data: options
-    });
+    }).$mount()
 
-    vmodel.$mount().$appendTo(document.body);
-    vmodel.visible = true;
+    document.body.appendChild(vmodel.$el)
 
-    return vmodel;
+    vmodel.visible = true
+
+    return vmodel
   },
   /**
    * @param msg
    * @param done
    */
-  alert(msg, done) {
+  alert (msg, done) {
     let options = {
       message: msg,
       onConfirm: done
-    };
+    }
 
     let vmodel = new VhAlertFn({
       data: options
-    });
+    }).$mount()
 
     // vmodel.id = Date.now() + Math.random()* 10000 + '';
-    vmodel.$mount().$appendTo(document.body);
-    vmodel.visible = true;
+    document.body.appendChild(vmodel.$el)
 
-    return vmodel;
+    vmodel.visible = true
+
+    return vmodel
   },
   /**
    * @param label
    * @param done
    */
-  prompt(label, done) {
+  prompt (label, done) {
     // @Todo implementation...
   }
 }
@@ -63,4 +65,4 @@ let Factory = {
 export {
   Factory as default,
   VhModal
-};
+}

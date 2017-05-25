@@ -6,85 +6,91 @@
           <span>基本</span>
         </li>
         <li class="list-group-item active">
-          <a v-link="{ path: '/' }">Welcome</a>
+          <router-link to="/">Welcome</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/layout' }">Layout</a>
+          <router-link to="/layout">Layout</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/colors' }">Colors</a>
+          <router-link to="/colors">Colors</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/icons' }">Icons</a>
+          <router-link to="/icons">Icons</router-link>
         </li>
         <li class="list-group-item-heading">
           <span>组件</span>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/buttons' }">Button</a>
+          <router-link to="/buttons">Button</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/dropdown' }">Dropdown</a>
+          <router-link to="/dropdown">Dropdown</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/form' }">Form</a>
+          <router-link to="/form">Form</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/checkbox' }">Checkbox</a>
+          <router-link to="/checkbox">Checkbox</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/radio' }">Radio</a>
+          <router-link to="/radio">Radio</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/input' }">Input</a>
+          <router-link to="/input">Input</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/select' }">Select</a>
+          <router-link to="/select">Select</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/notifications' }">Notification</a>
+          <router-link to="/notifications">Notification</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/modal' }">Modal</a>
+          <router-link to="/modal">Modal</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/tooltip' }">Tooltip</a>
+          <router-link to="/tooltip">Tooltip</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/badge' }">Badge</a>
+          <router-link to="/badge">Badge</router-link>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/alert' }">Alert</a>
+          <router-link to="/alert">Alert</router-link>
         </li>
         <li class="list-group-item-heading">
           <span>其他</span>
         </li>
         <li class="list-group-item">
-          <a v-link="{ path: '/thanks' }">Thanks</a>
+          <router-link to="/thanks">Thanks</router-link>
         </li>
       </ul>
        <!-- HOOLAY.cn -->
-      <a href="http://hoolay.cn" class="logo-link" target="_blank">
-        <vh-icon type="logohoolaysm"></vh-icon>
+      <a href="https://github.com/Hoolay-CN/VHStrap" class="logo-link" target="_blank" style="font-size: 13px; width: 100%; text-align: center; right: 0;">
+        Made with <vh-icon type="favorite" style="font-size: 12px; color: orangered"></vh-icon> github.com .
       </a>
     </aside>
     <div class="markdown-body">
       <div class="wrap">
         <section class="l-offset"></section>
-        <div class="r-content">
-          <router-view></router-view>
+        <div class="r-content" id="rContent">
+          <transition
+            enter-active-class="animated fadeIn"
+            leave-active-class="animated fadeOut"
+            mode="out-in"
+          >
+            <router-view></router-view>
+          </transition>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script type="text/babel">
   import $ from 'jquery';
-  import VhIcon from 'src/components/iconfonts/index.vue';
+  import { VhIcon } from 'src/components/iconfonts';
 
   export default {
-    name: 'docs',
+    name: 'Docs',
 
     methods: {
       onClickSideList(e) {
@@ -101,6 +107,8 @@
                .filter('.active')
                .add(target)
                .toggleClass('active');
+
+        document.body.scrollTop = 0
       }
     },
 

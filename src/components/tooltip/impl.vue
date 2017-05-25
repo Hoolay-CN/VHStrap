@@ -1,55 +1,60 @@
-<template xmlns:v-ref="http://www.w3.org/1999/xhtml" xmlns:v-el="http://www.w3.org/1999/xhtml">
+<template>
   <div
       class="vh-tooltip"
       @mouseenter="handleShowPopper"
       @mouseleave="handleClosePopper">
     <div class="vh-tooltip__rel"
-         v-el:reference
+         ref="reference"
     >
       <slot></slot>
     </div>
 
-    <div
-        class="vh-tooltip__popper"
-        :class="['is-' + effect]"
-        :transition="transition"
+    <transition
+        :name="transition"
         @after-leave="doDestroy"
-        v-show="!disabled && showPopper"
-        v-el:popper
     >
-      <slot name="content"><div v-text="content"></div></slot>
-    </div>
+      <div
+          class="vh-tooltip__popper"
+          :class="['is-' + theme]"
+          v-show="!disabled && showPopper"
+          ref="popper"
+      >
+        <slot name="content">
+          <div v-text="content"></div>
+        </slot>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
-  import Popper from 'vh-src/mixins/popper';
+  import Popper from '../../mixins/popper'
 
   export default {
     name: 'VhTooltip',
 
-    mixins: [Popper],
+    mixins: [ Popper ],
 
     props: {
       openDelay: {
         type: Number,
-        default: 0
+        'default': 0
       },
       disabled: Boolean,
-      effect: {
+      theme: {
         type: String,
-        default: 'dark'
+        'default': 'dark'
       },
       content: String,
       visibleArrow: {
-        default: true
+        'default': true
       },
       transition: {
         type: String,
-        default: 'fade'
+        'default': 'fade'
       },
       options: {
-        default() {
+        'default'() {
           return {
             boundariesPadding: 10,
             gpuAcceleration: false
@@ -61,27 +66,25 @@
     methods: {
       handleShowPopper() {
         this.timeout = setTimeout(() => {
-          this.showPopper = true;
-        }, this.openDelay);
+          this.showPopper = true
+        }, this.openDelay)
       },
 
       handleClosePopper() {
-        clearTimeout(this.timeout);
-        this.showPopper = false;
+        clearTimeout(this.timeout)
+        this.showPopper = false
       }
     }
   };
 </script>
 
-<style>
-  .fade-transition {
+<style type="text/css">
+  .fade-enter-active, .fade-leave-active {
     transition: opacity .5s;
     opacity: 1;
   }
-  .fade-enter {
-    opacity: 1;
-  }
-  .fade-leave {
+
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
 </style>

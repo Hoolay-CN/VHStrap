@@ -1,12 +1,12 @@
 <template><section><h2>Checkbox (复选框)</h2>
 <h4>Basic</h4>
 <div style="padding: 10px 0;">
-  <vh-checkbox :value.sync="aValue" name="people[zh-cn]">中国人</vh-checkbox>
+  <vh-checkbox v-model="aValue" name="people[zh-cn]">中国人</vh-checkbox>
   <strong>
     people[zh-cn] => {{ aValue }}
   </strong>
 </div>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">vh-checkbox</span> <span class="hljs-attr">:value.sync</span>=<span class="hljs-string">"aValue"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"people[zh-cn]"</span>&gt;</span>中国人<span class="hljs-tag">&lt;/<span class="hljs-name">vh-checkbox</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">vh-checkbox</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"aValue"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"people[zh-cn]"</span>&gt;</span>中国人<span class="hljs-tag">&lt;/<span class="hljs-name">vh-checkbox</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>
   people[zh-cn] =&gt; <span>{{</span> aValue <span>}}</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
@@ -20,7 +20,7 @@
     <vh-checkbox label="日本人" name="people[japan]"></vh-checkbox>
   </vh-checkbox-group>
   <strong>
-    [{{ groupValue }}]
+    {{ groupValue }}
   </strong>
 </div>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 10px 0;"</span>&gt;</span>
@@ -188,7 +188,7 @@
         console.log(sure);
       },
       onGroupCheckboxInput(val) {
-        this.$set('groupValue', val);
+        this.groupValue = val
       }
     },
     components: {

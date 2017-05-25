@@ -12,7 +12,7 @@
         </vh-col>
       </vh-row>
       <vh-row>
-        <vh-col v-for="n in cols">
+        <vh-col v-for="n in cols" :key="n">
           <h6 style="text-align: center; padding: 70px 0; background-color:  #eeeeee;">{{ n }}</h6>
         </vh-col>
       </vh-row>
@@ -163,7 +163,7 @@
 
 <script type="text/babel">
   import Notification from 'src/components/notification';
-  import VhIcon from 'src/components/iconfonts/index.vue';
+  import VhIcon from 'src/components/iconfonts/impl.vue';
   import VhAlert from 'src/components/alert/alert.vue';
   import { VhContainer, VhRow, VhCol } from 'src/components/layout/index';
   import { VhCheckbox, VhCheckboxGroup } from 'src/components/checkbox/index';
@@ -175,8 +175,8 @@
   import { VhButton, VhButtonGroup } from 'src/components/button/index';
   import ModalFactory, { VhModal }from 'src/components/modal/index';
   import VhPagination from 'src/components/pagination/index.vue';
-  import VhTooltip from 'src/components/tooltip/index.vue';
-  import VhBadge from 'src/components/badge/index.vue';
+  import { VhTooltip } from 'src/components/tooltip';
+  import { VhBadge } from 'src/components/badge';
 
   export default {
     data() {

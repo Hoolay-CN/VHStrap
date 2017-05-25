@@ -2,7 +2,7 @@
 <p>单选框需要在Group模式下使用</p>
 <h4>Basic</h4>
 <div style="padding: 10px 0;">
-  <vh-radio-group :value="groupSingleValue" @input="onRadioCheck">
+  <vh-radio-group v-model="groupSingleValue">
     <vh-radio label="西瓜" name="fruit"></vh-radio>
     <vh-radio label="苹果" name="fruit"></vh-radio>
     <vh-radio label="哈密瓜" name="fruit"></vh-radio>
