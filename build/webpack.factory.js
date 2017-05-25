@@ -1,19 +1,19 @@
 /**
  * Created by charlie on 9/22/16.
  */
-var path = require('path');
-var baseConfig = require('./webpack.config.base');
-var merge = require('lodash/merge');
+let path = require('path');
+let baseConfig = require('./webpack.config.base');
+let merge = require('lodash/merge');
 
-var developmentConfig = require('./webpack.config.development');
-var rootPath = path.resolve(__dirname + '/../');
+let developmentConfig = require('./webpack.config.development');
+let rootPath = path.resolve(__dirname + '/../');
 
 // merge base with custom configures
 function mergeConfigure(customConfigure) {
 
   // Handle module
-  var loaders = baseConfig.module;
-  var moduleNonLoaders= {};
+  let loaders = baseConfig.module;
+  let moduleNonLoaders= {};
 
   customConfigure.hasOwnProperty('module') && ( loaders = Object.assign(loaders, customConfigure.module), delete customConfigure.module);
   Object.keys(loaders).forEach(function(key) {
@@ -30,7 +30,7 @@ function mergeConfigure(customConfigure) {
   loaders = loaders.$$store;
 
   // Merge
-  var allConfigs = merge({}, baseConfig, customConfigure);
+  let allConfigs = merge({}, baseConfig, customConfigure);
 
   // Fixed module
   allConfigs.module = (moduleNonLoaders.loaders = loaders, moduleNonLoaders);
@@ -38,7 +38,7 @@ function mergeConfigure(customConfigure) {
   return allConfigs;
 }
 
-var factory = {
+let factory = {
   withDevelopment: function(opts) {
     opts = opts || {};
 
@@ -47,7 +47,7 @@ var factory = {
   withProduction: function(opts) {
     opts = opts || {};
   }
-}
+};
 
 module.exports = {
   Factory: factory,

@@ -14,7 +14,7 @@
             <button type="button" class="close" @click="close"><span>&times;</span></button>
             <h4 class="modal-title">
               <slot name="title">
-                {{title}}
+                {{ title }}
               </slot>
             </h4>
           </div>
@@ -24,8 +24,8 @@
           </div>
         <slot name="modal-footer">
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" @click="_cancel">{{ cancelText }}</button>
-            <button type="button" class="btn btn-hoolay" @click="_ok">{{ okText }}</button>
+            <button type="button" class="btn btn-default" @click="internalCancel">{{ cancelText }}</button>
+            <button type="button" class="btn btn-hoolay" @click="internalOk">{{ okText }}</button>
           </div>
         </slot>
       </div>
@@ -34,8 +34,8 @@
 </template>
 
 <script type="text/babel">
-  import classList from 'dom-classlist';
-  import { getScrollBarWidth } from '../common/utils.js'
+  import classList from 'dom-classlist'
+  import { getScrollBarWidth } from '../common/utils'
 
   export default {
     name: 'VhModal',
@@ -43,49 +43,55 @@
     props: {
       okText: {
         type: String,
-        default: '确定'
+        'default': '确定'
       },
       cancelText: {
         type: String,
-        default: '取消'
+        'default': '取消'
       },
       title: {
         type: String,
-        default: ''
+        'default': ''
       },
       show: {
         required: true,
-        type: Boolean,
-        twoWay: true
+        type: Boolean
       },
       width: {
-        default: null
+        'default': null
       },
       onOk: {
         type: Function,
-        default () {}
+        'default' () {}
       },
       onCancel: {
         type: Function,
-        default () {}
+        'default' () {}
       },
       effect: {
         type: String,
-        default: 'fade'
+        'default': 'fade'
       },
       backdrop: {
         type: Boolean,
-        default: true
+        'default': true
       },
       large: {
         type: Boolean,
-        default: false
+        'default': false
       },
       small: {
         type: Boolean,
-        default: false
+        'default': false
       }
     },
+
+    data() {
+      return {
+        internalShow: this.show
+      }
+    },
+
     computed: {
       optionalWidth () {
         if (this.width === null) {
@@ -97,58 +103,87 @@
       }
     },
     watch: {
-      show (val) {
-        const el = this.$el;
-        const body = document.body;
-        const scrollBarWidth = getScrollBarWidth();
+      show(val) {
+        // just flow down
+        this.internalShow = val
+      },
+
+      internalShow (val) {
+
+      	const vm = this
+        const el = this.$el
+        const body = document.body
+        const scrollBarWidth = getScrollBarWidth()
 
         if (val) {
-          el.querySelector('.modal-content').focus();
+          el.querySelector('.modal-content').focus()
 
-          el.style.display = 'block';
-
-          setTimeout(() => classList(el).add('in'), 0);
-
-          classList(body).add('modal-open');
+          el.style.display = 'block'
 
           if (scrollBarWidth !== 0) {
-            body.style.paddingRight = scrollBarWidth + 'px';
+            body.style.paddingRight = scrollBarWidth + 'px'
           }
+
+          classList(body).add('modal-open')
+
+          setTimeout(() => {
+          	classList(el).add('in')
+          }, 0)
+
+          // async
+          el.addEventListener('transitionend', function endFn() {
+            el.removeEventListener('transitionend', endFn)
+
+	        vm.$emit('open-transition-end')
+          }, false)
 
           // @Todo
           // if (this.backdrop) {}
+          this.$emit('open')
         } else {
-          body.style.paddingRight = null;
-
-          classList(body).remove('modal-open');
-          classList(el).remove('in');
+          body.style.paddingRight = null
 
           el.addEventListener('transitionend', function endFn() {
-            el.removeEventListener('transitionend', endFn);
-            el.style.display = 'none';
-          }, false);
+            el.removeEventListener('transitionend', endFn)
+
+            classList(body).remove('modal-open')
+            el.style.display = 'none'
+
+            vm.$emit('close-transition-end')
+          }, false)
+
+          classList(el).remove('in')
+
+          this.$emit('close')
         }
 
+        // explicitly emit an event instead of mutating the prop .sync
+        this.$emit('update:show', val)
       }
     },
     methods: {
       close () {
-        this.show = false;
+        this.internalShow = false
       },
       open () {
-        this.show = true;
+        this.internalShow = true
       },
-      _cancel(e) {
-        typeof this.onCancel === 'function' && this.onCancel(e, this);
+      internalCancel(e) {
+        typeof this.onCancel === 'function' && this.onCancel(e, this)
 
-        this.close();
+        this.close()
+
+        return this.internalShow
       },
-      _ok(e) {
-        let ok = null;
-        typeof this.onOk === 'function' && (ok = this.onOk(e, this));
+      internalOk(e) {
+        let ok = null
 
-        ok !== false && this.close();
+        typeof this.onOk === 'function' && (ok = this.onOk(e, this))
+
+        ok !== false && this.close()
+
+        return this.internalShow
       }
     }
-  };
+  }
 </script>

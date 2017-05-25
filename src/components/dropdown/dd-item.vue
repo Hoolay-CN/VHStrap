@@ -18,7 +18,7 @@
       tag: String, // flag for item
       type: {
         type: String,
-        default: 'item' // `divider`, `header`
+        'default': 'item' // `divider`, `header`
       },
       disabled: Boolean,
       href: String, // indicate item is link

@@ -3,7 +3,7 @@
 <pre><code class="language-javascript"><span class="hljs-keyword">import</span> VhTooltip <span class="hljs-keyword">from</span> <span class="hljs-string">'src/components/tooltip/index.vue'</span>;
 </code></pre>
 <div style="padding: 15px 0;">
-  <vh-tooltip content="Top Hi center" placement="top" effect="light">
+  <vh-tooltip content="Top Hi center" placement="top" theme="light">
     <vh-badge value="9+">
       <button class="btn btn-secondary">Dark Tooltip</button>
     </vh-badge>
@@ -15,7 +15,7 @@
   </vh-tooltip>
 </div>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 15px 0;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">vh-tooltip</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Top Hi center"</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">effect</span>=<span class="hljs-string">"light"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">vh-tooltip</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"Top Hi center"</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">"top"</span> <span class="hljs-attr">theme</span>=<span class="hljs-string">"light"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">vh-badge</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"9+"</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"btn btn-secondary"</span>&gt;</span>Dark Tooltip<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">vh-badge</span>&gt;</span>
@@ -41,7 +41,7 @@
 </thead>
 <tbody>
 <tr>
-<td>effect</td>
+<td>theme</td>
 <td>默认提供的主题</td>
 <td>String</td>
 <td><code>dark</code>, <code>light</code></td>
@@ -117,8 +117,8 @@
 </section></template>
 
 <script>
-  import VhTooltip from 'src/components/tooltip/index.vue';
-  import VhBadge from 'src/components/badge/index.vue';
+  import { VhTooltip } from 'src/components/tooltip';
+  import { VhBadge } from 'src/components/badge';
   import { VhButton } from 'src/components/button/index';
 
   export default {

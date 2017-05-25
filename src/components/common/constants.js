@@ -8,4 +8,4 @@ module.exports = {
   NS_EVENT_FORM_REMOVE_FIELD: 'vh.form.removeField',
   NS_EVENT_FORM_ITEM_XNATIVE_BLUR: 'vh.form.item.xnative.blur',
   NS_EVENT_FORM_ITEM_XNATIVE_CHANGE: 'vh.form.item.xnative.change'
-};
+}

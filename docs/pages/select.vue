@@ -1,13 +1,13 @@
 <template><section><h1>Select (选框)</h1>
 <h4>Basic</h4>
 <div style="padding: 10px 0;">
-  <vh-select name="select" :value.sync="select" label="--请选择一个xx--" :options="selectData"></vh-select>
+  <vh-select name="select" v-model="select" label="--请选择一个xx--" :options="selectData"></vh-select>
   <strong style="display: inline-block; padding-top: 5px;">
     您选中了 => {{ select }}
   </strong>
 </div>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"padding: 10px 0;"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">vh-select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"select"</span> <span class="hljs-attr">:value.sync</span>=<span class="hljs-string">"select"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"--请选择一个xx--"</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"selectData"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-select</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">vh-select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"select"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"select"</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"--请选择一个xx--"</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">"selectData"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-select</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: inline-block; padding-top: 5px;"</span>&gt;</span>
     您选中了 =&gt; <span>{{</span> select <span>}}</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>

@@ -3,10 +3,10 @@
 <h3>基本结构</h3>
 <pre><code class="language-javascript"><span class="hljs-keyword">import</span> { VhForm, VhFormItem } <span class="hljs-keyword">from</span> <span class="hljs-string">'src/components/form/index'</span>;
 </code></pre>
-<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">vh-form</span> <span class="hljs-attr">:inline</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">:model</span>=<span class="hljs-string">"formData"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules"</span> <span class="hljs-attr">@submit.prevent</span>=<span class="hljs-string">"onSubmit"</span> <span class="hljs-attr">v-ref:form</span>&gt;</span>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">vh-form</span> <span class="hljs-attr">:inline</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">:model</span>=<span class="hljs-string">"formData"</span> <span class="hljs-attr">:rules</span>=<span class="hljs-string">"rules"</span> <span class="hljs-attr">@submit.native.prevent</span>=<span class="hljs-string">"onSubmit"</span> <span class="hljs-attr">ref="form"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">vh-form-item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"Email:"</span> <span class="hljs-attr">muted-text</span>=<span class="hljs-string">"一个友情提示..."</span> <span class="hljs-attr">prop</span>=<span class="hljs-string">"email"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">vh-input-group</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">vh-input</span> <span class="hljs-attr">:value.sync</span>=<span class="hljs-string">"formData.email"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Email"</span> <span class="hljs-attr">:on-change</span>=<span class="hljs-string">"onInputChange"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-input</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">vh-input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"formData.email"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Email"</span> <span class="hljs-attr">:on-change</span>=<span class="hljs-string">"onInputChange"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">vh-input</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"input-group-addon"</span>&gt;</span>@icloud.com<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">vh-input-group</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">vh-form-item</span>&gt;</span>
@@ -16,32 +16,32 @@
 <div class="ex-form-container">
   <div class="row">
     <div class="col-xs-9">
-      <vh-form :inline="false" :model="formData" :rules="rules" @submit.prevent="onSubmit" v-ref:form="">
+      <vh-form :inline="false" :model="formData" :rules="rules" @submit.native.prevent="onSubmit" ref="form">
           <vh-form-item label="Email:" muted-text="一个友情提示..." prop="email">
             <vh-input-group>
-              <vh-input :value.sync="formData.email" type="text" placeholder="Email" :on-change="onInputChange"></vh-input>
+              <vh-input v-model="formData.email" type="text" placeholder="Email"></vh-input>
               <span class="input-group-addon">@icloud.com</span>
             </vh-input-group>
           </vh-form-item>
           <vh-form-item label="Price:" prop="price">
             <vh-input-group>
               <span class="input-group-addon">￥</span>
-              <vh-input :value.sync="formData.price" type="number"></vh-input>
+              <vh-input v-model="formData.price" type="number"></vh-input>
             </vh-input-group>
           </vh-form-item>
           <vh-form-item label="Select One:" prop="select">
-            <vh-select name="select" :value.sync="formData.select" label="--请选择一个xx--" :options="[ {name: 'one', value: '1'}, {name: 'two', value: '2'}, { label: '地理位置', subs: [ {name: 'four', value: '4'}, {name: 'five', value: '5'} ] }, {name: 'three', value: '3'} ]"></vh-select>
+            <vh-select name="select" v-model="formData.select" label="--请选择一个xx--" :options="[ {name: 'one', value: '1'}, {name: 'two', value: '2'}, { label: '地理位置', subs: [ {name: 'four', value: '4'}, {name: 'five', value: '5'} ] }, {name: 'three', value: '3'} ]"></vh-select>
           </vh-form-item>
           <vh-form-item label="Content:" prop="content" muted-text="字数不要超过100个哟">
             <vh-input-group>
-              <vh-input type="textarea" placeholder="description here ..." :styles="{height: '120px'}" :value.sync="formData.content"></vh-input>
+              <vh-input type="textarea" placeholder="description here ..." :styles="{height: '120px'}" v-model="formData.content"></vh-input>
             </vh-input-group>
           </vh-form-item>
           <vh-form-item label="How many People Do you Love ?" muted-text="multiple checkbox" prop="people">
-            <vh-checkbox-group :value="formData.people" @input="onCheckboxInput">
-              <vh-checkbox label="中国人" :on-change="onCheckboxChange" name="people[zh-cn]"></vh-checkbox>
-              <vh-checkbox label="美国人" :on-change="onCheckboxChange" name="people[usa]"></vh-checkbox>
-              <vh-checkbox label="日本人" :on-change="onCheckboxChange" name="people[jp]"></vh-checkbox>
+            <vh-checkbox-group v-model="formData.people">
+              <vh-checkbox label="中国人"  name="people[zh-cn]"></vh-checkbox>
+              <vh-checkbox label="美国人"  name="people[usa]"></vh-checkbox>
+              <vh-checkbox label="日本人"  name="people[jp]"></vh-checkbox>
             </vh-checkbox-group>
           </vh-form-item>
           <vh-form-item label="Which fruit do you like to eat ?" muted-text="single radio" prop="fruit">
@@ -233,7 +233,7 @@
           content: {required: true, message: '必须填写哟'},
           people(rule, value, callback, source, options) {
             console.log(rule);
-            var errors = [];
+            let errors = [];
             if(!Array.isArray(value) || value.length < 2) {
               errors.push(new Error('请选择至少两个吧'));
             }
@@ -244,7 +244,7 @@
     },
     methods: {
       onCheckboxInput(val) {
-        this.$set('formData.people', val);
+//        this.$set('formData.people', val);
       },
       onRadioInput(val) {
         this.formData.fruit = val;

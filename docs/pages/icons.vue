@@ -189,7 +189,7 @@
 <h3>Links</h3>
 <p><a href="http://www.iconfont.cn/">http://www.iconfont.cn/</a></p>
 </section></template>
-<style lang="sass">
+<style lang="scss">
 .icon_lists {
   list-style: none;
   overflow: hidden;
@@ -220,5 +220,5 @@
 }
 </style>
 <script>
-  import VhIcon from 'src/components/iconfonts/index.vue';
+  import VhIcon from 'src/components/iconfonts/impl.vue';
 </script>

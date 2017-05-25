@@ -5,5 +5,5 @@ import VhCol from './col.vue';
 module.exports = {
   VhContainer,
   VhRow,
-  VhCol
+  VhCol,
 };

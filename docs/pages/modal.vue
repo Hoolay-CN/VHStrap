@@ -101,7 +101,7 @@
 </tr>
 <tr>
 <td>show</td>
-<td>绑定是否显示(two-way)</td>
+<td>绑定是否显示(.sync)</td>
 <td>boolean</td>
 <td>--</td>
 <td>false</td>

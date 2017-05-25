@@ -1,5 +1,6 @@
+<template>
   <div class="vh-pagination" v-show="labels.length > 0">
-    <ul class="pagination pagination-{{ size }}">
+    <ul :class="'pagination pagination-' + size">
       <li @click="_moveSlide(-1, false)"
           :class="{
             'page-item': true,
@@ -8,14 +9,14 @@
       >
         <a href="javascript:void(0);" class="page-link">&laquo;</a>
       </li>
-      <li v-for="($index, n) in labels"
-          track-by="$index"
+      <li v-for="(n, index) in labels"
+          :key="index"
           :class="{
             'page-item': true,
-            'active': current == n
+            'active': internalCurrent == n
           }"
       >
-        <a href="javascript:void(0);" @click="onPage(n)" class="page-link">{{ n }}</a>
+        <a href="javascript:;" @click="onPage(n)" class="page-link">{{ n }}</a>
       </li>
       <li @click="_moveSlide(1, false)"
           :class="{
@@ -23,7 +24,7 @@
             'disabled': currentSlide === totalSlide
           }"
       >
-        <a href="javascript:void(0);" class="page-link">&raquo;</a>
+        <a href="javascript:;" class="page-link">&raquo;</a>
       </li>
     </ul>
   </div>
@@ -34,16 +35,18 @@
   export default {
     name: 'VhPagination',
 
-    data: () => {
+    data() {
       return {
         labels: [], // calculated page
-        currentSlide: 1
+        currentSlide: 1,
+        internalCurrent: this.current
       }
     },
+
     props: {
       limit: {
         type: Number,
-        default: 20
+        'default': 20
       },
       total: {
         type: Number,
@@ -51,24 +54,23 @@
       },
       size: {
         type: String,
-        default: 'sm' // `lg` `md(default)`
+        'default': 'sm' // `lg` `md(default)`
       },
       offset: {
         type: Number,
-        default: 8
+        'default': 8
       },
       current: { // Current page number
         type: Number,
-        default: 1,
-        twoWay: true
+        'default': 1
       }
     },
     computed: {
       'pages'() {
-        return Math.ceil(this.total / this.limit);
+        return Math.ceil(this.total / this.limit)
       },
       'totalSlide'() {
-        return Math.ceil(this.pages / this.offset);
+        return Math.ceil(this.pages / this.offset)
       }
     },
     methods: {
@@ -79,78 +81,82 @@
        * @private
        */
       _moveSlide: function (dir, calculateCurrentSlide = true) {
-        let labels = [];
+        let labels = []
 
-        let lastSlide = this.totalSlide;
+        let lastSlide = this.totalSlide
+
         // go to next slide
-        let currentSlide = calculateCurrentSlide ? (this.current <= 0 ? 1 : Math.ceil(this.current / this.offset)) : this.currentSlide;
+        let currentSlide = calculateCurrentSlide ? (this.internalCurrent <= 0 ? 1 : Math.ceil(this.internalCurrent / this.offset)) : this.currentSlide
 
-        // Which slide to go ?
-        let whichSlide = currentSlide + (dir === false ? 0 : dir);
+        // Which slide to go
+        let whichSlide = currentSlide + (dir === false ? 0 : dir)
 
-        dir !== false && ( whichSlide = whichSlide <= 0 ? 1 : (whichSlide > lastSlide ? lastSlide : whichSlide));
+        dir !== false && ( whichSlide = whichSlide <= 0 ? 1 : (whichSlide > lastSlide ? lastSlide : whichSlide))
 
-        let starter = (whichSlide - 1) * this.offset;
+        let starter = (whichSlide - 1) * this.offset
 
         // set current slide
-        this.currentSlide = whichSlide;
+        this.currentSlide = whichSlide
 
         while (++starter) {
-          if (labels.length == this.offset || this.pages < starter) {
-            break;
+          if (labels.length === this.offset || this.pages < starter) {
+            break
           }
 
-          labels.push(starter);
+          labels.push(starter)
         }
 
         // add header & footer
-        if (whichSlide != 1) {
-          labels.unshift(labels[0] - 1);
+        if (+whichSlide !== 1) {
+          labels.unshift(labels[0] - 1)
         }
 
-        if (whichSlide != lastSlide) {
-          labels.push(labels[labels.length - 1] + 1);
+        if (+whichSlide !== lastSlide) {
+          labels.push(labels[labels.length - 1] + 1)
         }
 
         // check current label
-        if (this.labels[0] != labels[0]) {
-          this.$set('labels', labels);
+        if (this.labels[0] !== labels[0]) {
+          this.labels = labels
         }
       },
       _updatePageState: function () {
         // step for no pager
-        if (this.total == 0 || this.total < this.limit) {
-          this.labels = [];
-          return;
+        if (this.total === 0 || this.total < this.limit) {
+          this.labels = []
+          return
         }
 
-        this._moveSlide(false);
+        this._moveSlide(false)
       },
 
-      onPage: function(n) {
-        this.current = n;
+      onPage: function (n) {
+        // this.current = n
+        this.internalCurrent = n
+        this.$emit('on-page', n)
+
         // Update State
-        this._updatePageState();
+        this._updatePageState()
       }
     },
     watch: {
-      total: function(a, b) {
-        this.current = 1;
-        this.labels = [];
+      total: function (a, b) {
+        this.internalCurrent = 1
+        this.labels = []
 
-        this._updatePageState();
+        this._updatePageState()
       }
     },
     ready: function () {
       if (this.offset < 6) {
-        throw new Error('Offset number must be greater than Six(6).');
+        throw new Error('Offset number must be greater than Six(6).')
       }
-      this._updatePageState();
+      this._updatePageState()
     }
   }
 </script>
 
-<style>
+<style type="text/css">
   .page-link:focus, .page-link:hover {
     text-decoration: none;
   }

@@ -1,16 +1,23 @@
 <template>
-  <div class="vh-notification" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer()" @mouseleave="startTimer()">
-    <icon class="vh-notification__icon" :type="typeClass" v-if="type"></icon>
-    <div class="vh-notification__group" :style="{ 'margin-left': typeClass ? '55px' : '0' }">
-      <span>{{ title }}</span>
-      <p>{{ message }}</p>
-      <div class="vh-notification__closeBtn close" @click="handleClose()">&times;</div>
+  <transition
+      enter-active-class="animated bounceInRight"
+      leave-active-class="animated fadeOut"
+      @after-leave="afterLeave"
+  >
+    <div class="vh-notification" v-show="visible" :style="{ top: top ? top + 'px' : 'auto' }" @mouseenter="clearTimer()"
+         @mouseleave="startTimer()">
+      <vh-icon class="vh-notification__icon" :type="typeClass" v-if="type"></vh-icon>
+      <div class="vh-notification__group" :style="{ 'margin-left': typeClass ? '55px' : '0' }">
+        <span>{{ title }}</span>
+        <p>{{ message }}</p>
+        <div class="vh-notification__closeBtn close" @click="handleClose()">&times;</div>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script type="text/babel">
-  import Icon from '../iconfonts';
+  import { VhIcon } from '../iconfonts'
 
   const typeMap = {
     success: 'right',
@@ -20,6 +27,8 @@
   };
 
   export default {
+    name: 'VhNotification',
+
     data() {
       return {
         visible: false,
@@ -36,42 +45,45 @@
 
     computed: {
       typeClass() {
-        return this.type && typeMap[this.type] ? typeMap[this.type] : '';
+        return this.type && typeMap[this.type] ? typeMap[this.type] : ''
       }
     },
 
     watch: {
-      closed: function(newVal) {
+      closed: function (newVal) {
         if (true === newVal) {
-          this.visible = false;
+          this.visible = false
           // Clear
-          this.$nextTick(() => {
-            // this.$el.parentNode.removeChild(this.$el);
-            this.$destroy(true);
-          });
+//          this.$nextTick(() => {
+//            // this.$el.parentNode.removeChild(this.$el);
+//            this.$destroy()
+//          })
         }
       }
     },
 
     methods: {
+      afterLeave() {
+        this.$destroy()
+      },
       handleClose() {
-        this.closed = true;
+        this.closed = true
         if (typeof this.onClose === 'function') {
-          this.onClose();
+          this.onClose()
         }
       },
 
       clearTimer() {
-        clearTimeout(this.timer);
+        clearTimeout(this.timer)
       },
 
       startTimer() {
         if (this.duration > 0) {
           this.timer = setTimeout(() => {
             if (!this.closed) {
-              this.handleClose();
+              this.handleClose()
             }
-          }, this.duration);
+          }, this.duration)
         }
       }
     },
@@ -80,14 +92,14 @@
       if (this.duration > 0) {
         this.timer = setTimeout(() => {
           if (!this.closed) {
-            this.handleClose();
+            this.handleClose()
           }
-        }, this.duration);
+        }, this.duration)
       }
     },
 
     components: {
-      Icon,
+      VhIcon,
     }
-  };
+  }
 </script>
