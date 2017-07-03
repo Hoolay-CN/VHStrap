@@ -76,7 +76,7 @@
       },
 
       'rows' () {
-        this._injectRowItemField('__selected', false)
+        this._supportedPrefixFeature('__select__')
       }
     },
 
